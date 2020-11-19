@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef, useContext, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
@@ -13,6 +13,7 @@ import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
 import { DatePicker } from "@material-ui/pickers";
+import tripContext from "../contexts/tripContext";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -29,14 +30,21 @@ const Transition = forwardRef(function Transition(props, ref) {
 });
 
 function Trip() {
+  const {
+    departureCity,
+    setDepartureCity,
+    arrivalCity,
+    setArrivalCity,
+    departureCityCoordinates,
+    setDepartureCityCoordinates,
+    arrivalCityCoordinates,
+    setArrivalCityCoordinates,
+    selectedDate,
+    handleDateChange,
+  } = useContext(tripContext);
   const classes = useStyles();
   const [openDeparture, setOpenDeparture] = useState(false);
   const [openArrival, setOpenArrival] = useState(false);
-  const [departureCity, setDepartureCity] = useState("");
-  const [arrivalCity, setArrivalCity] = useState("");
-  const [departureCityCoordinates, setDepartureCityCoordinates] = useState("");
-  const [arrivalCityCoordinates, setArrivalCityCoordinates] = useState("");
-  const [selectedDate, handleDateChange] = useState(new Date());
 
   const handleClickOpenDeparture = () => {
     setOpenDeparture(true);
