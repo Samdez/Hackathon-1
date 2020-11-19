@@ -1,13 +1,18 @@
-import { logoFacebook, logoLinkedin, logoTwitter, logoYoutube } from "./images";
-
-// import "./Footer.css";
+import {
+  logo,
+  logoFacebook,
+  logoLinkedin,
+  logoTwitter,
+  logoYoutube,
+} from "./images";
+import "./Footer.css";
 
 function Footer() {
   return (
     <footer className="backgroundFooter">
       <div className="footerMain">
         <div className="leftArea">
-          <img className="logo" src={"JNJNJNNJ"} alt="Logo" />
+          <img className="logo" src={logo} alt="Logo" />
           <p style={{ textAlign: "justify" }}>
             BlablaCalèche is the first carriage pooling solution in the word. We
             put passengers and drivers in relation to share a trip, everywhere,
@@ -15,10 +20,10 @@ function Footer() {
           </p>
         </div>
         <div className="middleArea">
-          <p>CONTACT US</p>
-          <p>LEGAL</p>
-          <p>PRIVACY</p>
-          <p>CAREERS</p>
+          <p className="footerP">CONTACT US</p>
+          <p className="footerP">LEGAL</p>
+          <p className="footerP">PRIVACY</p>
+          <p className="footerP">CAREERS</p>
         </div>
         <div className="rightArea">
           <div>
@@ -36,7 +41,7 @@ function Footer() {
         </div>
       </div>
       <div className="baselineArea">
-        <p> COPYRIGHT © 2020 | BLABLAGENCY</p>
+        <p className="footerP"> COPYRIGHT © 2020 | BLABLAGENCY</p>
       </div>
     </footer>
   );
