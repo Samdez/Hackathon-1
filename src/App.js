@@ -1,3 +1,6 @@
+import Router from "./components/Router";
+import { MuiPickersUtilsProvider } from "@material-ui/pickers";
+import MomentUtils from "@date-io/moment";
 import "./App.css";
 import axios from 'axios';
 import { useEffect, useState } from "react";
@@ -48,15 +51,11 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <h1>BlaBlaCalèche</h1>
-      {tripList.map(tripListItem => {
-        const link = tripListItem.link
-        const idIndex = link.indexOf('&') + 4;
-        const id = link.slice(idIndex)
-        return <p key={id}>{id}</p>
-      })}
-    </div>
+    <MuiPickersUtilsProvider utils={MomentUtils}>
+      <div className="App">
+        <Router />
+      </div>
+    </MuiPickersUtilsProvider>
   );
 }
 
