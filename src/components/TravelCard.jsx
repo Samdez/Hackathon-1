@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   CardText,
   CardBody,
@@ -10,30 +10,36 @@ import {
 import { useState } from "react";
 import { AiOutlineStar, AiTwotoneStar } from "react-icons/ai";
 import "./TravelCard.css";
+import tripContext from "../contexts/tripContext";
 
-function TravelCard(props) {
+function TravelCard({ arrival, departure, duration, price}) {
   const [isFavorite, setIsFavorite] = useState(false);
+  const {
+    departureCity,
+    arrivalCity,
+    selectedDate,
+  } = useContext(tripContext);
 
   return (
     <>
       <Col style={{ display: "flex", justifyContent: "center" }}>
         <CardBody className="card-body">
           <CardTitle tag="h2" style={{ textAlign: "center" }}>
-            Trajet
+            {departureCity} / {arrivalCity}
           </CardTitle>
 
           <div className="bloc-card">
             <div className="ville-depart">
-              <CardText style={{ fontWeight: "bold" }}>Paris</CardText>
+              <CardText style={{ fontWeight: "bold" }}>{departure}</CardText>
             </div>
-            <CardText>Durée : 3h</CardText>
+            <CardText>Durée : {duration}h</CardText>
             <div className="ville-arrivee">
-              <CardText style={{ fontWeight: "bold" }}>Bordeaux</CardText>
+              <CardText style={{ fontWeight: "bold" }}>{arrival}</CardText>
             </div>
           </div>
 
           <CardText style={{ fontWeight: "bold", textAlign: "center" }}>
-            25 €
+            {price}€
           </CardText>
 
           <CardText style={{ textAlign: "center" }}>

@@ -15,6 +15,7 @@ import Slide from "@material-ui/core/Slide";
 import { DatePicker } from "@material-ui/pickers";
 import tripContext from "../contexts/tripContext";
 import { Box } from "@material-ui/core";
+import TripSearchResults from "./TripSearchResults";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -175,21 +176,21 @@ function Trip() {
           </List>
         </Dialog>
       </Box>
-
-      {/* Date selection */}
-      {/* Date format : "yyyy-M-dTHH:mm:ss" */}
       <Box>
         <DatePicker
           label="Departure date"
           value={selectedDate}
           onChange={handleDateChange}
           animateYearScrolling
+
+        // format="MM/dd/yyyy"
           // maxDate={Date(2019 - 01 - 01)}
         />
       </Box>
       <Button variant="contained" color="primary">
         Validate
       </Button>
+      <TripSearchResults/>
     </Box>
   );
 }
