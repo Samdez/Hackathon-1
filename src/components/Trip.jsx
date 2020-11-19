@@ -14,6 +14,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
 import { DatePicker } from "@material-ui/pickers";
 import tripContext from "../contexts/tripContext";
+import { Box } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -66,10 +67,11 @@ function Trip() {
     { name: "Toulouse", coordinates: "43.604652, 1.444209" },
   ];
 
+  console.log(selectedDate._d);
   return (
-    <>
+    <Box>
       {/* Departure Button */}
-      <div>
+      <Box display="flex" justifyContent="center" alignItems="center">
         <Button
           variant="outlined"
           color="primary"
@@ -119,10 +121,10 @@ function Trip() {
             })}
           </List>
         </Dialog>
-      </div>
+      </Box>
 
       {/* Arrival Button */}
-      <div>
+      <Box>
         <Button
           variant="outlined"
           color="primary"
@@ -172,19 +174,23 @@ function Trip() {
             })}
           </List>
         </Dialog>
-      </div>
+      </Box>
 
       {/* Date selection */}
       {/* Date format : "yyyy-M-dTHH:mm:ss" */}
-      <DatePicker
-        label="Basic example"
-        value={selectedDate}
-        onChange={handleDateChange}
-        animateYearScrolling
-        // maxDate={Date(2019 - 01 - 01)}
-      />
-      <Button></Button>
-    </>
+      <Box>
+        <DatePicker
+          label="Departure date"
+          value={selectedDate}
+          onChange={handleDateChange}
+          animateYearScrolling
+          // maxDate={Date(2019 - 01 - 01)}
+        />
+      </Box>
+      <Button variant="contained" color="primary">
+        Validate
+      </Button>
+    </Box>
   );
 }
 
