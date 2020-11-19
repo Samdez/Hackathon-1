@@ -19,14 +19,6 @@ function TravelCard({ arrival, departure, duration, price, backgroundImage, port
     departureCity,
     arrivalCity,
   } = useContext(tripContext);
-  const styles = {
-    paperContainer: {
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-        filter: 'grayscale(100%)'
-    },
-};
 
   return (
     <>
@@ -44,7 +36,7 @@ function TravelCard({ arrival, departure, duration, price, backgroundImage, port
               <CardText style={{ fontWeight: "bold" }}>{arrival}</CardText>
             </div>
           </div>
-          <div>
+          <div className="d-flex justify-content-around">
           <Avatar alt="vehicle" src={backgroundImage} />
           <CardText style={{ fontWeight: "bold", textAlign: "center" }}>
             {price}€
