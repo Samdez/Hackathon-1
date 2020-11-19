@@ -44,13 +44,11 @@ const TripSearchResults = () => {
 
   return ( 
     <>
-    <p>{tripRequest}</p>
-    
     {tripList.map(tripListItem => {
       const link = tripListItem.link
       const idIndex = link.indexOf('&') + 4;
       const id = link.slice(idIndex)
-      return <p key={id}>{id}</p>
+      return <p key={id}>{tripListItem.waypoints[0].place.city}</p>
     })}
    </>
    );
