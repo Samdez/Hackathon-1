@@ -11,14 +11,22 @@ import { useState } from "react";
 import { AiOutlineStar, AiTwotoneStar } from "react-icons/ai";
 import "./TravelCard.css";
 import tripContext from "../contexts/tripContext";
+import { Avatar } from "@material-ui/core";
 
-function TravelCard({ arrival, departure, duration, price}) {
+function TravelCard({ arrival, departure, duration, price, backgroundImage, portrait}) {
   const [isFavorite, setIsFavorite] = useState(false);
   const {
     departureCity,
     arrivalCity,
-    selectedDate,
   } = useContext(tripContext);
+  const styles = {
+    paperContainer: {
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        filter: 'grayscale(100%)'
+    },
+};
 
   return (
     <>
@@ -27,21 +35,22 @@ function TravelCard({ arrival, departure, duration, price}) {
           <CardTitle tag="h2" style={{ textAlign: "center" }}>
             {departureCity} / {arrivalCity}
           </CardTitle>
-
           <div className="bloc-card">
             <div className="ville-depart">
-              <CardText style={{ fontWeight: "bold" }}>{departure}</CardText>
+              <CardText style={{ fontWeight: "bold"}}>{departure}</CardText>
             </div>
             <CardText>Durée : {duration}h</CardText>
             <div className="ville-arrivee">
               <CardText style={{ fontWeight: "bold" }}>{arrival}</CardText>
             </div>
           </div>
-
+          <div>
+          <Avatar alt="vehicle" src={backgroundImage} />
           <CardText style={{ fontWeight: "bold", textAlign: "center" }}>
             {price}€
           </CardText>
-
+          <Avatar alt="driver's picture" src={portrait} />
+          </div>
           <CardText style={{ textAlign: "center" }}>
             Have a god trip with BlaBlaCalèche
           </CardText>

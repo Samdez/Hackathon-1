@@ -9,7 +9,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 
 import Box from "@material-ui/core/Box";
 
-import { user, carriage, logo } from "./images/index";
+import { user, carriage, logo } from "./images/images";
 import { Grid, Menu } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
