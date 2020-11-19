@@ -1,100 +1,66 @@
-import React, { useContext } from "react";
-import {
-  CardText,
-  CardBody,
-  CardTitle,
-  Col,
-  Button,
-  CardImg,
-} from "reactstrap";
-import { useState } from "react";
-import { AiOutlineStar, AiTwotoneStar } from "react-icons/ai";
+
 import "./TravelCard.css";
-import tripContext from "../contexts/tripContext";
-import { Avatar } from "@material-ui/core";
+import { Avatar, CardHeader, CardMedia, Grid } from "@material-ui/core";
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
 
-function TravelCard({ arrival, departure, duration, price, backgroundImage, portrait}) {
-  const [isFavorite, setIsFavorite] = useState(false);
-  const {
-    departureCity,
-    arrivalCity,
-  } = useContext(tripContext);
+const useStyles = makeStyles((theme) => ({
+  root: {
+    maxWidth: 345,
+  },
+  media: {
+    height: 0,
+    paddingTop: '56.25%', // 16:9
+  },
+  expand: {
+    transform: 'rotate(0deg)',
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    }),
+  },
+  expandOpen: {
+    transform: 'rotate(180deg)',
+  },
+  avatar: {
+    backgroundSize: 'cover',
+  },
+  margin: {
+    margin: '2rem',
+  },
+  grow: {
+    flexGrow: 1,
+  }
+}));
 
+function TravelCard({ arrival, departure, duration, price, backgroundImage, portrait }) {
+  const classes = useStyles();
   return (
-    <>
-      <Col style={{ display: "flex", justifyContent: "center" }}>
-        <CardBody className="card-body">
-          <CardTitle tag="h2" style={{ textAlign: "center" }}>
-            {departureCity} / {arrivalCity}
-          </CardTitle>
-          <div className="bloc-card">
-            <div className="ville-depart">
-              <CardText style={{ fontWeight: "bold"}}>{departure}</CardText>
-            </div>
-            <CardText>Durée : {duration}h</CardText>
-            <div className="ville-arrivee">
-              <CardText style={{ fontWeight: "bold" }}>{arrival}</CardText>
-            </div>
-          </div>
-          <div className="d-flex justify-content-around">
-          <Avatar alt="vehicle" src={backgroundImage} />
-          <CardText style={{ fontWeight: "bold", textAlign: "center" }}>
-            {price}€
-          </CardText>
-          <Avatar alt="driver's picture" src={portrait} />
-          </div>
-          <CardText style={{ textAlign: "center" }}>
-            Have a god trip with BlaBlaCalèche
-          </CardText>
-          <div
-            className="favoris"
-            style={{ display: "flex", justifyContent: "space-between" }}
-          >
-            <CardImg src="" alt="Card image cap" />
+    <Grid className={classes.margin} item xs={3}>
+      <Card className={classes.root}>
+        <CardHeader
+          avatar={
+            <Avatar aria-label="recipe" src={portrait} className={classes.avatar} />
+          }
 
-            <Button
-              style={{
-                backgroundColor: " rgb(247, 244, 244)",
-                border: "none",
-                outline: "none",
-              }}
-              onClick={() => {
-                setIsFavorite(!isFavorite);
-              }}
-            >
-              {isFavorite ? (
-                <AiTwotoneStar size="1.5rem" color="#F0C300" />
-              ) : (
-                <AiOutlineStar
-                  size="1.5rem"
-                  backGroundColor="red"
-                  color="#585E68"
-                />
-              )}
-            </Button>
-          </div>
-        </CardBody>
-      </Col>
-      <div
-        style={{
-          textAlign: "center",
-          marginTop: "10px",
-        }}
-      >
-        <Button
-          style={{
-            border: "1px solid black",
-            borderRadius: "20px",
-            height: "30px",
-            width: "150px",
-            outline: "none",
-          }}
-        >
-          Choisir ce Trajet
-        </Button>
-      </div>
-    </>
-  );
+          title={departure + '/' + arrival}
+          subheader={duration + 'hours'}
+        />
+        <CardMedia
+          className={classes.media}
+          image={backgroundImage}
+          title="Paella dish"
+        />
+        <CardContent>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {price}€
+        </Typography>
+        </CardContent>
+      </Card>
+    </Grid>
+  )
 }
 
 export default TravelCard;

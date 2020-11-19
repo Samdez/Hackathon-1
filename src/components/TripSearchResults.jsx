@@ -2,6 +2,7 @@ import Axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import tripContext from '../contexts/tripContext';
 import moment from 'moment';
+import { makeStyles } from '@material-ui/core/styles';
 import TravelCard from "./TravelCard";
 import {
   carriage1,
@@ -21,6 +22,7 @@ import {
   portrait7,
   portrait8
 } from './images/images'
+import { Grid } from "@material-ui/core";
 
 const TripSearchResults = () => {
   const {
@@ -80,7 +82,12 @@ const TripSearchResults = () => {
 
 
   return ( 
-    <>
+    <Grid
+    container
+    direction='column'
+    justify='space-around'
+    alignItems='center'
+    >
     {tripList.map((tripListItem, index) => {
       const link = tripListItem.link
       const idIndex = link.indexOf('&') + 4;
@@ -89,13 +96,13 @@ const TripSearchResults = () => {
       key={id}
       departure = {tripListItem.waypoints[0].place.city}
       arrival = {tripListItem.waypoints.reverse()[0].place.city}
-      duration = {Math.round(tripListItem.duration_in_seconds) / 3600}
+      duration = {Math.round(tripListItem.duration_in_seconds / 3600)}
       price = {tripListItem.price.amount}
       backgroundImage= {carriagesImagesArray[index]}
       portrait= {portraitsArray[index]}
       />
     })}
-   </>
+    </Grid>
    );
 }
  
