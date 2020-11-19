@@ -1,0 +1,23 @@
+.card-body {
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 90%;
+  background-color: rgb(247, 244, 244);
+  box-shadow: 2px 2px 3px 0px #656565;
+}
+.bloc-card {
+  display: flex;
+  justify-content: space-around;
+}
+
+.ville-depart {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ville-arrivee {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
