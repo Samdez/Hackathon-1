@@ -22,22 +22,15 @@ const arrivalCity = `&to_coordinate=${arrivalCityCoordinates}`;
 
 
 
-const tripRequest = apiURL.concat('', search, key, departureCity, arrivalCity, currency, startDate, endDate, radius)
+
 
 function App() {
 
-  const [tripList, setTripList] = useState([]);
-  const [googleCoordinates, setGoogleCoordinates] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
-  const location = '16 avenue du 8 mai 1945 64100 Bayonne';
+ 
+  // const [googleCoordinates, setGoogleCoordinates] = useState({});
+  // const location = '16 avenue du 8 mai 1945 64100 Bayonne';
 
-  //Request for Bordeaux Paris
-    useEffect(() => {
-    axios.get(tripRequest)
-    .then(res => res.data)
-    .then(data => setTripList(data.trips))      
-    .then(setIsLoading(false))
-  }, [])
+  
 
   //Requesting coordinates of location const with Geocoding API
     // useEffect(() => {
@@ -46,9 +39,6 @@ function App() {
     //   .then(data => console.log(data))
     // }, [])
 
-  if(isLoading){
-    return <h1>Loading</h1>
-  }
 
   return (
     <MuiPickersUtilsProvider utils={MomentUtils}>
