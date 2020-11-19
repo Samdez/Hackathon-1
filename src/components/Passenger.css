@@ -1,0 +1,16 @@
+.passengerBg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("../components/images/passengerBg.jpg");
+  width: 100%;
+}
+
+.mainLogo {
+  margin-top: 50px;
+  width: 40%;
+}
+
+p {
+  margin-bottom: 200px;
+}
