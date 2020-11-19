@@ -32,11 +32,6 @@ function Trip() {
   const classes = useStyles();
   const [openDeparture, setOpenDeparture] = useState(false);
   const [openArrival, setOpenArrival] = useState(false);
-  const [departureCity, setDepartureCity] = useState("");
-  const [arrivalCity, setArrivalCity] = useState("");
-  const [departureCityCoordinates, setDepartureCityCoordinates] = useState("");
-  const [arrivalCityCoordinates, setArrivalCityCoordinates] = useState("");
-  const [selectedDate, handleDateChange] = useState(new Date());
 
   const handleClickOpenDeparture = () => {
     setOpenDeparture(true);
