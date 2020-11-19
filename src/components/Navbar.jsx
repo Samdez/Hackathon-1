@@ -7,6 +7,14 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  NavLink,
+} from "react-router-dom";
+
 import Box from "@material-ui/core/Box";
 
 import { user, carriage, logo } from "./images/index";
@@ -55,8 +63,16 @@ export default function ButtonAppBar() {
                 onClose={handleClose}
               >
                 <MenuItem onClick={handleClose}>Dashboard</MenuItem>
-                <MenuItem onClick={handleClose}>My Profile</MenuItem>
-                <MenuItem onClick={handleClose}>Drive</MenuItem>
+                <MenuItem onClick={handleClose}>
+                  <NavLink tag={Link} to="/myprofile">
+                    My Profile
+                  </NavLink>
+                </MenuItem>
+                <MenuItem onClick={handleClose}>
+                  <NavLink tag={Link} to="/myprofile">
+                    Drive
+                  </NavLink>
+                </MenuItem>
                 <MenuItem onClick={handleClose}>Settings</MenuItem>
               </Menu>
             </div>
@@ -66,31 +82,42 @@ export default function ButtonAppBar() {
               color="black"
               aria-label="menu"
             ></IconButton>
-            <Grid container direction="row" justify="space-around">
-              <Button variant="h6" className={classes.title}>
-                <img
-                  height="100%"
-                  width={90}
-                  src={logo}
-                  alt="logo icon navbar"
-                />
-              </Button>
-              <Button color="grey">
-                <img
-                  height="100%"
-                  width={30}
-                  src={user}
-                  alt="user icon navbar"
-                />
-              </Button>
-              <Button color="grey">
-                <img
-                  height="100%"
-                  width={30}
-                  src={carriage}
-                  alt="carriage icon navbar"
-                />
-              </Button>
+            <Grid
+              container
+              direction="row"
+              justify="space-around"
+              alignItems="center"
+            >
+              <NavLink tag={Link} to="/">
+                <Button tag={Link} variant="h6" className={classes.title}>
+                  <img
+                    height="100%"
+                    width={90}
+                    src={logo}
+                    alt="logo icon navbar"
+                  />
+                </Button>
+              </NavLink>
+              <NavLink tag={Link} to="/myprofile">
+                <Button color="grey">
+                  <img
+                    height="100%"
+                    width={30}
+                    src={user}
+                    alt="user icon navbar"
+                  />
+                </Button>
+              </NavLink>
+              <NavLink tag={Link} to="/trip">
+                <Button color="grey">
+                  <img
+                    height="100%"
+                    width={30}
+                    src={carriage}
+                    alt="carriage icon navbar"
+                  />
+                </Button>
+              </NavLink>
             </Grid>
           </Toolbar>
         </Box>

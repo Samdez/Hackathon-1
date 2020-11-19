@@ -6,6 +6,7 @@ import tripContext from "../contexts/tripContext";
 import Home from "./Home";
 import Layout from "./Layout";
 import Trip from "./Trip";
+import MyProfile from "./MyProfile";
 
 const Router = () => {
   const [departureCity, setDepartureCity] = useState("");
@@ -31,6 +32,7 @@ const Router = () => {
       >
         <Layout>
           <Switch>
+            <Route path="/myprofile" component={MyProfile} />
             <Route path="/trip" component={Trip} />
             <Route exact path="/" component={Home} />
           </Switch>
