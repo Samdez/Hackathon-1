@@ -189,6 +189,7 @@ function Trip() {
         value={selectedDate}
         onChange={handleDateChange}
         animateYearScrolling
+        format="MM/dd/yyyy"
         // maxDate={Date(2019 - 01 - 01)}
       />
       <TripSearchResults/>
