@@ -1,6 +1,10 @@
 import Router from "./components/Router";
+
+import TravelCard from "./components/TravelCard";
+
 import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 import MomentUtils from "@date-io/moment";
+
 import "./App.css";
 import axios from 'axios';
 import { useEffect, useState } from "react";
@@ -45,7 +49,9 @@ function App() {
       <div className="App">
         <Router />
       </div>
+      <TravelCard />
     </MuiPickersUtilsProvider>
+    
   );
 }
 
