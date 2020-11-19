@@ -1,12 +1,12 @@
 import Header from "./Header";
 import Footer from "./Footer";
-import Home from "./Home";
+import { Container } from "@material-ui/core";
 
-const Layout = () => {
+const Layout = ({ children }) => {
   return (
     <div>
       <Header />
-      <Home />
+      <Container>{children}</Container>
       <Footer />
     </div>
   );

@@ -31,18 +31,15 @@ const Transition = forwardRef(function Transition(props, ref) {
 
 function Trip() {
   const {
-    departureCity,
     setDepartureCity,
-    arrivalCity,
     setArrivalCity,
-    departureCityCoordinates,
     setDepartureCityCoordinates,
-    arrivalCityCoordinates,
     setArrivalCityCoordinates,
     selectedDate,
     handleDateChange,
   } = useContext(tripContext);
   const classes = useStyles();
+
   const [openDeparture, setOpenDeparture] = useState(false);
   const [openArrival, setOpenArrival] = useState(false);
 
@@ -68,11 +65,7 @@ function Trip() {
     { name: "Rennes", coordinates: "48.0833, -1.6833" },
     { name: "Toulouse", coordinates: "43.604652, 1.444209" },
   ];
-  console.log(`Ville de depart`, departureCity);
-  console.log(`Coordonnées ville de départ`, departureCityCoordinates);
-  console.log(`Ville d'arrivée`, arrivalCity);
-  console.log(`Coordonnées ville darrivée`, arrivalCityCoordinates);
-  console.log(selectedDate);
+
   return (
     <>
       {/* Departure Button */}
@@ -190,6 +183,7 @@ function Trip() {
         animateYearScrolling
         // maxDate={Date(2019 - 01 - 01)}
       />
+      <Button></Button>
     </>
   );
 }
