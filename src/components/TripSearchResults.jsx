@@ -2,14 +2,15 @@ import Axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import tripContext from '../contexts/tripContext';
 import moment from 'moment';
+import TravelCard from "./TravelCard";
 
 const TripSearchResults = () => {
   const {
     departureCity,
     arrivalCity,
+    selectedDate,
     departureCityCoordinates,
     arrivalCityCoordinates,
-    selectedDate,
   } = useContext(tripContext);
   // const formatedDate = ;
   const apiURL = 'https://public-api.blablacar.com';
@@ -48,7 +49,13 @@ const TripSearchResults = () => {
       const link = tripListItem.link
       const idIndex = link.indexOf('&') + 4;
       const id = link.slice(idIndex)
-      return <p key={id}>{tripListItem.waypoints[0].place.city}</p>
+      return <TravelCard 
+      key={id}
+      departure = {tripListItem.waypoints[0].place.city}
+      arrival = {tripListItem.waypoints.reverse()[0].place.city}
+      duration = {Math.round(tripListItem.duration_in_seconds) / 3600}
+      price = {tripListItem.price.amount} 
+      />
     })}
    </>
    );
