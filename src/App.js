@@ -10,7 +10,6 @@ const userEndDate = '2020-12-12T00:00:00';
 const userRadius = 5000;
 
 const key = 'key=dNuojyjDSdhDtLc0HWMRHie0u98j2En9';
-const googleKey = 'AIzaSyA2Jr688A1D8BxQkxc62UYbTBpX4r7ieuU';
 const startDate = `&start_date_local=${userStartDate}`;
 const endDate = `&end_date_local=${userEndDate}`;
 const radius = `&radius_in_meters=${userRadius}`;
