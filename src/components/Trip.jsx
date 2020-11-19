@@ -14,6 +14,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
 import { DatePicker } from "@material-ui/pickers";
 import tripContext from "../contexts/tripContext";
+import { Box } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -31,18 +32,15 @@ const Transition = forwardRef(function Transition(props, ref) {
 
 function Trip() {
   const {
-    departureCity,
     setDepartureCity,
-    arrivalCity,
     setArrivalCity,
-    departureCityCoordinates,
     setDepartureCityCoordinates,
-    arrivalCityCoordinates,
     setArrivalCityCoordinates,
     selectedDate,
     handleDateChange,
   } = useContext(tripContext);
   const classes = useStyles();
+
   const [openDeparture, setOpenDeparture] = useState(false);
   const [openArrival, setOpenArrival] = useState(false);
 
@@ -68,15 +66,12 @@ function Trip() {
     { name: "Rennes", coordinates: "48.0833, -1.6833" },
     { name: "Toulouse", coordinates: "43.604652, 1.444209" },
   ];
-  console.log(`Ville de depart`, departureCity);
-  console.log(`Coordonnées ville de départ`, departureCityCoordinates);
-  console.log(`Ville d'arrivée`, arrivalCity);
-  console.log(`Coordonnées ville darrivée`, arrivalCityCoordinates);
-  console.log(selectedDate);
+
+  console.log(selectedDate._d);
   return (
-    <>
+    <Box>
       {/* Departure Button */}
-      <div>
+      <Box display="flex" justifyContent="center" alignItems="center">
         <Button
           variant="outlined"
           color="primary"
@@ -126,10 +121,10 @@ function Trip() {
             })}
           </List>
         </Dialog>
-      </div>
+      </Box>
 
       {/* Arrival Button */}
-      <div>
+      <Box>
         <Button
           variant="outlined"
           color="primary"
@@ -179,18 +174,23 @@ function Trip() {
             })}
           </List>
         </Dialog>
-      </div>
+      </Box>
 
       {/* Date selection */}
       {/* Date format : "yyyy-M-dTHH:mm:ss" */}
-      <DatePicker
-        label="Basic example"
-        value={selectedDate}
-        onChange={handleDateChange}
-        animateYearScrolling
-        // maxDate={Date(2019 - 01 - 01)}
-      />
-    </>
+      <Box>
+        <DatePicker
+          label="Departure date"
+          value={selectedDate}
+          onChange={handleDateChange}
+          animateYearScrolling
+          // maxDate={Date(2019 - 01 - 01)}
+        />
+      </Box>
+      <Button variant="contained" color="primary">
+        Validate
+      </Button>
+    </Box>
   );
 }
 

@@ -1,14 +1,14 @@
 import PassengerComponent from "./Passenger";
 import Header from "./Header";
 import Footer from "./Footer";
-import Home from "./Home";
+import { Container } from "@material-ui/core";
 
-const Layout = () => {
+const Layout = ({ children }) => {
   return (
     <div>
       <Header />
+      <Container>{children}</Container>
       <PassengerComponent />
-      <Home />
       <Footer />
     </div>
   );

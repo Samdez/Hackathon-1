@@ -4,6 +4,7 @@ import tripContext from "../contexts/tripContext";
 
 // import Layout from "./Layout";
 import Home from "./Home";
+import Layout from "./Layout";
 import Trip from "./Trip";
 
 const Router = () => {
@@ -28,10 +29,12 @@ const Router = () => {
           handleDateChange,
         }}
       >
-        <Switch>
-          <Route path="/trip" component={Trip} />
-          <Route exact path="/" component={Home} />
-        </Switch>
+        <Layout>
+          <Switch>
+            <Route path="/trip" component={Trip} />
+            <Route exact path="/" component={Home} />
+          </Switch>
+        </Layout>
       </tripContext.Provider>
     </BrowserRouter>
   );
