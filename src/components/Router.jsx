@@ -7,10 +7,15 @@ import Home from "./Home";
 import Layout from "./Layout";
 import Trip from "./Trip";
 import MyProfile from "./MyProfile";
+import TripSearchResults from "./TripSearchResults";
 
 const Router = () => {
-  const [departureCity, setDepartureCity] = useState("");
-  const [arrivalCity, setArrivalCity] = useState("");
+  const [departureCity, setDepartureCity] = useState(
+    "Selectionnez votre ville de départ"
+  );
+  const [arrivalCity, setArrivalCity] = useState(
+    "Selectionnez votre ville d'arrivée"
+  );
   const [departureCityCoordinates, setDepartureCityCoordinates] = useState("");
   const [arrivalCityCoordinates, setArrivalCityCoordinates] = useState("");
   const [selectedDate, handleDateChange] = useState(new Date());
@@ -33,6 +38,7 @@ const Router = () => {
         <Layout>
           <Switch>
             <Route path="/myprofile" component={MyProfile} />
+            <Route path="/trip-search-results" component={TripSearchResults} />
             <Route path="/trip" component={Trip} />
             <Route exact path="/" component={Home} />
           </Switch>
