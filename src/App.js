@@ -1,9 +1,10 @@
+import Router from "./components/Router";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <h1>BlaBlaCalèche</h1>
+      <Router />
     </div>
   );
 }
