@@ -16,6 +16,8 @@ import { DatePicker } from "@material-ui/pickers";
 import tripContext from "../contexts/tripContext";
 import { Grid } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import { Box } from "@material-ui/core";
+import TripSearchResults from "./TripSearchResults";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -197,12 +199,14 @@ function Trip() {
           value={selectedDate}
           onChange={handleDateChange}
           animateYearScrolling
+
+          // format="MM/dd/yyyy"
           // maxDate={Date(2019 - 01 - 01)}
         />
       </Grid>
       <Grid style={{ margin: 25 }} xs={9}>
         <Button
-          tag={Link}
+          component={Link}
           to={"/trip-search-results"}
           variant="contained"
           color="primary"

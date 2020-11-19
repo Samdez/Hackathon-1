@@ -6,6 +6,7 @@ import tripContext from "../contexts/tripContext";
 import Home from "./Home";
 import Layout from "./Layout";
 import Trip from "./Trip";
+import TripSearchResults from "./TripSearchResults";
 
 const Router = () => {
   const [departureCity, setDepartureCity] = useState(
@@ -35,6 +36,7 @@ const Router = () => {
       >
         <Layout>
           <Switch>
+            <Route path="/trip-search-results" component={TripSearchResults} />
             <Route path="/trip" component={Trip} />
             <Route exact path="/" component={Home} />
           </Switch>
