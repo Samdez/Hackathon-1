@@ -1,5 +1,5 @@
 import React from "react";
-import { logo } from "./images";
+import { logo } from "./images/images";
 
 import "./Passenger.css";
 

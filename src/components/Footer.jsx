@@ -4,7 +4,7 @@ import {
   logoLinkedin,
   logoTwitter,
   logoYoutube,
-} from "./images";
+} from "./images/images";
 import "./Footer.css";
 
 function Footer() {
