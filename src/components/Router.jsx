@@ -17,7 +17,7 @@ const Router = () => {
   );
   const [departureCityCoordinates, setDepartureCityCoordinates] = useState("");
   const [arrivalCityCoordinates, setArrivalCityCoordinates] = useState("");
-  const [selectedDate, handleDateChange] = useState(new Date());
+  const [selectedDate, handleDateChange] = useState(new Date("1920-11-20"));
   return (
     <BrowserRouter>
       <tripContext.Provider
