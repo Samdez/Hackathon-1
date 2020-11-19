@@ -1,0 +1,6 @@
+.passengerBg {
+  background-image: url("../components/images/passengerBg.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 1000px;
+}
