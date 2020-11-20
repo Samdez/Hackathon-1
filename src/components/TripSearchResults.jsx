@@ -87,7 +87,7 @@ const TripSearchResults = () => {
 
   //TODO: add loader and prevent notripsavailable from showing
 
-  if (tripIsLoading && tripList.length === 0){
+  if (!tripIsLoading && tripList.length === 0){
     return <NoTripsAvailable date={formatedDate}/>
   }
   
