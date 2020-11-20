@@ -12,16 +12,16 @@ const DriverComponent = () => {
       </div>
       <div className="containerText">
         <Typography variant='h2' className="driverText">
-          You rather drive and share your carillage with new people ? Tel us
-          where are you going !
+          You'd rather drive and share your carriage with new people ? Tell us
+          where you're going !
         </Typography>
         <Typography variant='p' className="driverText">
-          Together, lets help millions of people to travel easier and make this
-          your least expensive journey ever. Every week, every month. To meet
+          We help millions of people travel easier and make this
+          their least expensive journey ever. Every week, every month. To meet
           with a loved one, or to discover a new place. With a big family, or a
-          big luggage. To Paris, Amsterdam or any other European destination.
+          big luggage. Our service is already available in most of France's main cities.
         </Typography>
-        <button className="driverButton">Offer a ride</button>
+        <Button className="driverButton">Offer a ride</Button>
       </div>
     </div>
   );

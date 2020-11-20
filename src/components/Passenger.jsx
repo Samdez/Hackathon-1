@@ -17,9 +17,9 @@ function PassengerComponent() {
     >
       <img className="mainLogo" src={logo} alt="" />
       <Typography className="textPassanger" variant="h1">
-        Passengers, welcome on BlaBlaCalèche.
+        Welcome to BlaBlaCalèche!
       </Typography>
-      <Typography>Share a carriage where ever you want !</Typography>
+      <Typography>Share a carriage whenever you want !</Typography>
       <Typography>Let's go for a ride !</Typography>
       <Trip />
     </motion.div>
