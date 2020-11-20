@@ -1,18 +1,12 @@
 import { Button, Typography } from "@material-ui/core";
 import React from "react";
 import { drivercomponent1 } from "./images/images";
-import { motion } from 'framer-motion';
 
 import "./Driver.css";
-import { useTransform, useViewportScroll } from "framer-motion";
 
 const DriverComponent = () => {
-
-  const { scrollYProgress } = useViewportScroll();
-  const xAnim = useTransform(scrollYProgress, [0, 0.5], [300, 0]);
-  const fadeScroll = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
   return (
-    <motion.div className="driverContainer" style={{x: xAnim, opacity: fadeScroll}}>
+    <div className="driverContainer">
       <div className="containerImg">
         <img className="driverImg" src={drivercomponent1} alt="driverimg" />
       </div>
@@ -27,9 +21,9 @@ const DriverComponent = () => {
           with a loved one, or to discover a new place. With a big family, or a
           big luggage. To Paris, Amsterdam or any other European destination.
         </Typography>
-        <Button className="driverButton">Offer a ride</Button>
+        <button className="driverButton">Offer a ride</button>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
