@@ -1,5 +1,5 @@
-import React, { forwardRef, useContext, useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React, { forwardRef, useContext, useEffect, useState } from "react";
+import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -16,16 +16,30 @@ import { DatePicker } from "@material-ui/pickers";
 import tripContext from "../contexts/tripContext";
 import { Grid } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import { Box } from "@material-ui/core";
-import TripSearchResults from "./TripSearchResults";
+import { createMuiTheme } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  appBar: {
+  appBar2: {
     position: "relative",
   },
   title: {
     marginLeft: theme.spacing(2),
     flex: 1,
+    backgroungColor: "white",
+  },
+  background: {
+    backgroundColor: "#e7bd70",
+  },
+  background2: {
+    backgroundColor: "white",
+  },
+  tripGrid: {
+    display: "flex",
+    flexDirection: "column",
+    justify: "space-around",
+    maxWidth: "80vw",
+    flexWrap: "nowrap",
+    alignItems: "center",
   },
 }));
 
@@ -72,20 +86,53 @@ function Trip() {
     { name: "Toulouse", coordinates: "43.604652, 1.444209" },
   ];
 
-  console.log(selectedDate._d);
+  const [ableToValidate, setAbleToValidate] = useState(false);
+  useEffect(() => {
+    if (
+      departureCity !== "Select your departure city" &&
+      arrivalCity !== "Select your arrival city" &&
+      selectedDate !== "1920-11-20"
+    ) {
+      setAbleToValidate(true);
+    }
+  }, [departureCity, arrivalCity, selectedDate]);
+
+  const pickerTheme = createMuiTheme({
+    overrides: {
+      MuiPickersToolbar: {
+        toolbar: {
+          backgroundColor: "#e7bd70",
+          fontFamily: "Limelight",
+        },
+      },
+      MuiPickersDay: {
+        daySelected: {
+          backgroundColor: "#e7bd70",
+        },
+      },
+      MuiTypography: {
+        h4: {
+          fontFamily: "Limelight",
+        },
+        body1: {
+          fontFamily: "Limelight",
+        },
+        body2: {
+          fontFamily: "Limelight",
+        },
+      },
+    },
+  });
+
   return (
-    <Grid
-      container
-      direction="column"
-      justify="space-around"
-      alignItems="center"
-    >
+    <Grid container className={classes.tripGrid}>
       {/* Departure Button */}
       <Grid style={{ margin: 50 }} xs={9}>
         <Grid>
           <Button
             variant="outlined"
-            color="primary"
+            color="black"
+            className={classes.background2}
             onClick={handleClickOpenDeparture}
           >
             {departureCity}
@@ -97,7 +144,7 @@ function Trip() {
           onClose={handleCloseDeparture}
           TransitionComponent={Transition}
         >
-          <AppBar className={classes.appBar}>
+          <AppBar className={classes.appBar2}>
             <Toolbar>
               <IconButton
                 edge="start"
@@ -140,7 +187,8 @@ function Trip() {
         <Grid>
           <Button
             variant="outlined"
-            color="primary"
+            color="black"
+            className={classes.background2}
             onClick={handleClickOpenArrival}
           >
             {arrivalCity}
@@ -152,7 +200,7 @@ function Trip() {
           onClose={handleCloseArrival}
           TransitionComponent={Transition}
         >
-          <AppBar className={classes.appBar}>
+          <AppBar className={classes.appBar2}>
             <Toolbar>
               <IconButton
                 edge="start"
@@ -191,27 +239,25 @@ function Trip() {
       </Grid>
 
       {/* Date selection */}
-      {/* Date format : "yyyy-M-dTHH:mm:ss" */}
-
       <Grid style={{ margin: 25 }} xs={9}>
-        <DatePicker
-          label="Departure date"
-          value={selectedDate}
-          onChange={handleDateChange}
-          animateYearScrolling
-
-          // format="MM/dd/yyyy"
-          // maxDate={Date(2019 - 01 - 01)}
-        />
+        <ThemeProvider theme={pickerTheme}>
+          <DatePicker
+            label="Departure date"
+            value={selectedDate}
+            onChange={handleDateChange}
+            animateYearScrolling
+          />
+        </ThemeProvider>
       </Grid>
-      <Grid style={{ margin: 25 }} xs={9}>
+      <Grid style={{ marginBottom: 25 }} xs={9}>
         <Button
+          disabled={!ableToValidate}
           component={Link}
           to={"/trip-search-results"}
           variant="contained"
-          color="primary"
+          className={classes.background}
         >
-          Validate
+          Let's go for a ride
         </Button>
       </Grid>
     </Grid>

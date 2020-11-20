@@ -1,10 +1,13 @@
-import { Link } from "react-router-dom";
+import PassengerComponent from "./Passenger";
+import DriverComponent from "./Driver";
+import IntroComponent from "./IntroductionApp";
 
 function Home() {
   return (
     <div>
-      <h1>Home</h1>
-      <Link to="/trip">Trip</Link>
+      <PassengerComponent />
+      <DriverComponent />
+      <IntroComponent />
     </div>
   );
 }

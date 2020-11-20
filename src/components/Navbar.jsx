@@ -6,10 +6,19 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
+import './navbar.css';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  NavLink,
+} from "react-router-dom";
 
 import Box from "@material-ui/core/Box";
 
-import { user, carriage, logo } from "./images/index";
+import { user, carriage, logo } from "./images/images";
 import { Grid, Menu } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
@@ -36,17 +45,18 @@ export default function ButtonAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="sticky">
         <Box bgcolor="#FFFFFF">
           <Toolbar>
             <div>
-              <Button
+              {/* <Button
                 aria-controls="simple-menu"
                 aria-haspopup="true"
                 onClick={handleClick}
+                className='hide'
               >
                 <MenuIcon />
-              </Button>
+              </Button> */}
               <Menu
                 id="simple-menu"
                 anchorEl={anchorEl}
@@ -54,9 +64,19 @@ export default function ButtonAppBar() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Dashboard</MenuItem>
-                <MenuItem onClick={handleClose}>My Profile</MenuItem>
-                <MenuItem onClick={handleClose}>Drive</MenuItem>
+                <NavLink tag={Link} to="/">
+                <MenuItem onClick={handleClose}>Home</MenuItem>
+                </NavLink>
+                <MenuItem onClick={handleClose}>
+                  <NavLink tag={Link} to="/myprofile">
+                    My Profile
+                  </NavLink>
+                </MenuItem>
+                <MenuItem onClick={handleClose}>
+                  <NavLink tag={Link} to="/trip">
+                    Drive
+                  </NavLink>
+                </MenuItem>
                 <MenuItem onClick={handleClose}>Settings</MenuItem>
               </Menu>
             </div>
@@ -66,31 +86,44 @@ export default function ButtonAppBar() {
               color="black"
               aria-label="menu"
             ></IconButton>
-            <Grid container direction="row" justify="space-around">
-              <Button variant="h6" className={classes.title}>
-                <img
-                  height="100%"
-                  width={90}
-                  src={logo}
-                  alt="logo icon navbar"
-                />
-              </Button>
-              <Button color="grey">
-                <img
-                  height="100%"
-                  width={30}
-                  src={user}
-                  alt="user icon navbar"
-                />
-              </Button>
-              <Button color="grey">
-                <img
-                  height="100%"
-                  width={30}
-                  src={carriage}
-                  alt="carriage icon navbar"
-                />
-              </Button>
+            <Grid
+              container
+              direction="row"
+              justify="space-between"
+              alignItems="center"
+            >
+              <NavLink tag={Link} to="/">
+                <Button tag={Link} variant="h6" className={classes.title}>
+                  <img
+                    height="100%"
+                    width={90}
+                    src={logo}
+                    alt="logo icon navbar"
+                  />
+                </Button>
+              </NavLink>
+              <div>
+              <NavLink tag={Link} to="/myprofile">
+                <Button color="grey">
+                  <img
+                    height="100%"
+                    width={30}
+                    src={user}
+                    alt="user icon navbar"
+                  />
+                </Button>
+              </NavLink>
+              <NavLink tag={Link} to="/trip">
+                <Button color="grey">
+                  <img
+                    height="100%"
+                    width={30}
+                    src={carriage}
+                    alt="carriage icon navbar"
+                  />
+                </Button>
+              </NavLink>
+              </div>
             </Grid>
           </Toolbar>
         </Box>

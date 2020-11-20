@@ -1,0 +1,54 @@
+.profile-title {
+  margin-top: 0px;
+  padding-top: 20px;
+  margin: 0px;
+}
+
+.MuiContainer-root {
+  margin: 0px;
+}
+
+.avatar {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  height: 100%;
+  width: 50px;
+  margin-top: 40px;
+}
+
+.icon-likes {
+  text-align: center;
+  margin: 10px;
+}
+
+.profile-name {
+  text-align: center;
+}
+
+.profile-statut {
+  text-align: center;
+}
+
+.profile-speaking {
+  text-align: center;
+  margin-bottom: 0px;
+  padding-bottom: 40px;
+}
+
+.p-infos {
+  vertical-align: text-top;
+}
+
+.div-infos {
+  margin-top: 40px;
+  margin-bottom: 30px;
+  margin: 20px;
+  padding-bottom: 40px;
+}
+
+.profile-icon {
+  height: 100%;
+  width: 30px;
+  margin: 5px;
+}

@@ -6,18 +6,18 @@ import tripContext from "../contexts/tripContext";
 import Home from "./Home";
 import Layout from "./Layout";
 import Trip from "./Trip";
+import MyProfile from "./MyProfile";
 import TripSearchResults from "./TripSearchResults";
+import PopCard from "./PopCard";
 
 const Router = () => {
   const [departureCity, setDepartureCity] = useState(
-    "Selectionnez votre ville de départ"
+    "Select your departure city"
   );
-  const [arrivalCity, setArrivalCity] = useState(
-    "Selectionnez votre ville d'arrivée"
-  );
+  const [arrivalCity, setArrivalCity] = useState("Select your arrival city");
   const [departureCityCoordinates, setDepartureCityCoordinates] = useState("");
   const [arrivalCityCoordinates, setArrivalCityCoordinates] = useState("");
-  const [selectedDate, handleDateChange] = useState(new Date());
+  const [selectedDate, handleDateChange] = useState(new Date("1920-11-20"));
   return (
     <BrowserRouter>
       <tripContext.Provider
@@ -36,9 +36,11 @@ const Router = () => {
       >
         <Layout>
           <Switch>
+            <Route path="/myprofile" component={MyProfile} />
             <Route path="/trip-search-results" component={TripSearchResults} />
             <Route path="/trip" component={Trip} />
             <Route exact path="/" component={Home} />
+            <Route exact path="/pop-confirmation" component={PopCard} />
           </Switch>
         </Layout>
       </tripContext.Provider>

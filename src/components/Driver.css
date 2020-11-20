@@ -1,0 +1,52 @@
+.driverContainer {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 100%;
+}
+
+.containerImg {
+  width: 100%;
+  text-align: center;
+}
+
+.driverImg {
+  width: 80%;
+}
+
+.containerText {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.driverText {
+  width: 80%;
+  text-align: justify;
+}
+
+.driverButton {
+  text-align: center;
+  margin-top: 15px;
+  width: 30%;
+}
+
+@media screen and (min-width: 758px) {
+  .driverContainer {
+    display: flex;
+  }
+
+  .driverText {
+    width: 70%;
+    text-align: justify;
+  }
+  .containerImg {
+    width: 100%;
+    text-align: right;
+  }
+  .driverImg {
+    padding-right: 10px;
+    width: 80%;
+  }
+}
