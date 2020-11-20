@@ -7,9 +7,6 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    maxWidth: 345,
-  },
   media: {
     height: 0,
     paddingTop: '56.25%', // 16:9
@@ -29,16 +26,15 @@ const useStyles = makeStyles((theme) => ({
   },
   margin: {
     margin: '2rem',
+    minWidth: '30vw',
+    maxWidth: '45vw'
   },
-  grow: {
-    flexGrow: 1,
-  }
 }));
 
 function TravelCard({ arrival, departure, duration, price, backgroundImage, portrait }) {
   const classes = useStyles();
   return (
-    <Grid className={classes.margin} item xs={3}>
+    <Grid className={classes.margin} item xs={12}>
       <Card className={classes.root}>
         <CardHeader
           avatar={
@@ -55,7 +51,7 @@ function TravelCard({ arrival, departure, duration, price, backgroundImage, port
         />
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
-            {price}€
+            {Math.round(price / 3.2)} francs
         </Typography>
         </CardContent>
       </Card>
