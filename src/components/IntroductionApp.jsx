@@ -52,7 +52,7 @@ const cards = [
 export default function IntroComponent() {
   const classes = useStyles();
   const { scrollYProgress } = useViewportScroll();
-  const yAnim = useTransform(scrollYProgress, [0, 1], [100, 0]);
+  const yAnim = useTransform(scrollYProgress, [0, 1], [300, 0]);
 
   return (
     <React.Fragment>
@@ -62,6 +62,7 @@ export default function IntroComponent() {
             {cards.map((card) => (
               <Grid item key={card} xs={12} sm={6} md={4} >
                 <Card className={classes.card}>
+                <motion.div style={{y: yAnim}}>
                   <CardMedia
                     className={classes.cardMedia}
                     image={card.image}
@@ -73,6 +74,7 @@ export default function IntroComponent() {
                     </Typography>
                     <Typography>{card.description}</Typography>
                   </CardContent>
+                </motion.div>
                 </Card>
               </Grid>
             ))}
