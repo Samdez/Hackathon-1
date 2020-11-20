@@ -21,18 +21,15 @@ import {
   portrait7,
   portrait8
 } from './images/images'
-import { Grid, Typography } from "@material-ui/core";
+import { CircularProgress, Grid, Typography } from "@material-ui/core";
 import NoTripsAvailable from "./NoTripsAvailable";
 
 const TripSearchResults = () => {
   const {
-    departureCity,
-    arrivalCity,
     selectedDate,
     departureCityCoordinates,
     arrivalCityCoordinates,
   } = useContext(tripContext);
-  // const formatedDate = ;
   const apiURL = 'https://public-api.blablacar.com';
   const search = '/api/v3/trips/?';
   const key = 'key=dNuojyjDSdhDtLc0HWMRHie0u98j2En9';
@@ -41,7 +38,8 @@ const TripSearchResults = () => {
   const formatDepartureCityCoordinates = `&from_coordinate=${departureCityCoordinates}`
   const formatArrivalCityCoordinates = `&to_coordinate=${arrivalCityCoordinates}`
   const [tripList, setTripList] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [tripIsLoading, setTripIsLoading] = useState(true);
+  const [nameIsLoading, setNameIsLoading] = useState(true);
   const format1 = "yyyy-M-DDT";
   const formatDate = moment(selectedDate).format(format1);
   const month = moment(selectedDate).format('MM');
@@ -73,22 +71,25 @@ const TripSearchResults = () => {
     Axios.get(tripRequest)
     .then(res => res.data)
     .then(data => setTripList(data.trips))      
-    .then(setIsLoading(false));
+    .then(setTripIsLoading(false));
     randomizeArray(carriagesImagesArray);
     randomizeArray(portraitsArray);
 
     Axios.get(`https://api.abalin.net/namedays?country=fr&month=${month}&day=${day}`)
     .then(res => res.data)
     .then(data => setNameDay(data.data.namedays.fr))
+    .then(setNameIsLoading(false))
   }, [formatedDate])
 
-  if(isLoading){
-    return <h1>Loading</h1>
+  if(tripIsLoading || nameIsLoading){
+    return <CircularProgress />
   }
 
-  if (tripList.length === 0){
-    return <NoTripsAvailable date={formatedDate}/>
-  }
+  //TODO: add loader and prevent notripsavailable from showing
+
+  // if (!tripIsLoading && tripList.length === 0){
+  //   return <NoTripsAvailable date={formatedDate}/>
+  // }
 
 
   return ( 
