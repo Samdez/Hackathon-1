@@ -5,7 +5,7 @@ export const fade = {
   show: {
     opacity: 1,
     transition: {
-      duration: 0.5
+      duration: 1
     }
   }
 }
