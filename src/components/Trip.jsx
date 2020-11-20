@@ -14,6 +14,8 @@ import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
 import { DatePicker } from "@material-ui/pickers";
 import tripContext from "../contexts/tripContext";
+import { Grid } from "@material-ui/core";
+import { Link } from "react-router-dom";
 import { Box } from "@material-ui/core";
 import TripSearchResults from "./TripSearchResults";
 
@@ -34,7 +36,9 @@ const Transition = forwardRef(function Transition(props, ref) {
 function Trip() {
   const {
     setDepartureCity,
+    departureCity,
     setArrivalCity,
+    arrivalCity,
     setDepartureCityCoordinates,
     setArrivalCityCoordinates,
     selectedDate,
@@ -70,16 +74,23 @@ function Trip() {
 
   console.log(selectedDate._d);
   return (
-    <Box>
+    <Grid
+      container
+      direction="column"
+      justify="space-around"
+      alignItems="center"
+    >
       {/* Departure Button */}
-      <Box display="flex" justifyContent="center" alignItems="center">
-        <Button
-          variant="outlined"
-          color="primary"
-          onClick={handleClickOpenDeparture}
-        >
-          Selectionnez votre ville de départ
-        </Button>
+      <Grid style={{ margin: 50 }} xs={9}>
+        <Grid>
+          <Button
+            variant="outlined"
+            color="primary"
+            onClick={handleClickOpenDeparture}
+          >
+            {departureCity}
+          </Button>
+        </Grid>
         <Dialog
           fullScreen
           open={openDeparture}
@@ -122,17 +133,19 @@ function Trip() {
             })}
           </List>
         </Dialog>
-      </Box>
+      </Grid>
 
       {/* Arrival Button */}
-      <Box>
-        <Button
-          variant="outlined"
-          color="primary"
-          onClick={handleClickOpenArrival}
-        >
-          Selectionnez votre ville d'arrivée
-        </Button>
+      <Grid style={{ margin: 25 }} xs={9}>
+        <Grid>
+          <Button
+            variant="outlined"
+            color="primary"
+            onClick={handleClickOpenArrival}
+          >
+            {arrivalCity}
+          </Button>
+        </Grid>
         <Dialog
           fullScreen
           open={openArrival}
@@ -175,23 +188,33 @@ function Trip() {
             })}
           </List>
         </Dialog>
-      </Box>
-      <Box>
+      </Grid>
+
+      {/* Date selection */}
+      {/* Date format : "yyyy-M-dTHH:mm:ss" */}
+
+      <Grid style={{ margin: 25 }} xs={9}>
         <DatePicker
           label="Departure date"
           value={selectedDate}
           onChange={handleDateChange}
           animateYearScrolling
 
-        // format="MM/dd/yyyy"
+          // format="MM/dd/yyyy"
           // maxDate={Date(2019 - 01 - 01)}
         />
-      </Box>
-      <Button variant="contained" color="primary">
-        Validate
-      </Button>
-      <TripSearchResults/>
-    </Box>
+      </Grid>
+      <Grid style={{ margin: 25 }} xs={9}>
+        <Button
+          component={Link}
+          to={"/trip-search-results"}
+          variant="contained"
+          color="primary"
+        >
+          Validate
+        </Button>
+      </Grid>
+    </Grid>
   );
 }
 
