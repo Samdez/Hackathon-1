@@ -42,7 +42,7 @@ const TripSearchResults = () => {
   const formatArrivalCityCoordinates = `&to_coordinate=${arrivalCityCoordinates}`
   const [tripList, setTripList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const format1 = "yyyy-M-DT";
+  const format1 = "yyyy-M-DDT";
   const formatDate = moment(selectedDate).format(format1);
   const month = moment(selectedDate).format('MM');
   const day = moment(selectedDate).format('DD');
@@ -87,7 +87,7 @@ const TripSearchResults = () => {
   }
 
   if (tripList.length === 0){
-    return <NoTripsAvailable />
+    return <NoTripsAvailable date={formatedDate}/>
   }
 
 
