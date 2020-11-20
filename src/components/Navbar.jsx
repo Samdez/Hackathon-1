@@ -49,14 +49,14 @@ export default function ButtonAppBar() {
         <Box bgcolor="#FFFFFF">
           <Toolbar>
             <div>
-              <Button
+              {/* <Button
                 aria-controls="simple-menu"
                 aria-haspopup="true"
                 onClick={handleClick}
                 className='hide'
               >
                 <MenuIcon />
-              </Button>
+              </Button> */}
               <Menu
                 id="simple-menu"
                 anchorEl={anchorEl}
@@ -64,7 +64,9 @@ export default function ButtonAppBar() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Dashboard</MenuItem>
+                <NavLink tag={Link} to="/">
+                <MenuItem onClick={handleClose}>Home</MenuItem>
+                </NavLink>
                 <MenuItem onClick={handleClose}>
                   <NavLink tag={Link} to="/myprofile">
                     My Profile
@@ -87,7 +89,7 @@ export default function ButtonAppBar() {
             <Grid
               container
               direction="row"
-              justify="space-around"
+              justify="space-between"
               alignItems="center"
             >
               <NavLink tag={Link} to="/">
@@ -97,10 +99,10 @@ export default function ButtonAppBar() {
                     width={90}
                     src={logo}
                     alt="logo icon navbar"
-                    className='hideIcons'
                   />
                 </Button>
               </NavLink>
+              <div>
               <NavLink tag={Link} to="/myprofile">
                 <Button color="grey">
                   <img
@@ -108,7 +110,6 @@ export default function ButtonAppBar() {
                     width={30}
                     src={user}
                     alt="user icon navbar"
-                    className='hideIcons'
                   />
                 </Button>
               </NavLink>
@@ -119,10 +120,10 @@ export default function ButtonAppBar() {
                     width={30}
                     src={carriage}
                     alt="carriage icon navbar"
-                    className='hideIcons'
                   />
                 </Button>
               </NavLink>
+              </div>
             </Grid>
           </Toolbar>
         </Box>
