@@ -1,5 +1,11 @@
 .profile-title {
-  margin-top: 20px;
+  margin-top: 0px;
+  padding-top: 20px;
+  margin: 0px;
+}
+
+.MuiContainer-root {
+  margin: 0px;
 }
 
 .avatar {
@@ -13,6 +19,7 @@
 
 .icon-likes {
   text-align: center;
+  margin: 10px;
 }
 
 .profile-name {
@@ -25,8 +32,8 @@
 
 .profile-speaking {
   text-align: center;
-  font-style: italic;
-  margin-bottom: 40px;
+  margin-bottom: 0px;
+  padding-bottom: 40px;
 }
 
 .p-infos {
@@ -35,7 +42,9 @@
 
 .div-infos {
   margin-top: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+  margin: 20px;
+  padding-bottom: 40px;
 }
 
 .profile-icon {
