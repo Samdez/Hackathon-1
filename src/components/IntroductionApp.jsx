@@ -7,6 +7,8 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { horse, moustache, caleche } from "./images/images";
+import { useTransform, useViewportScroll } from "framer-motion";
+import { motion } from 'framer-motion';
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -49,6 +51,9 @@ const cards = [
 
 export default function IntroComponent() {
   const classes = useStyles();
+  const { scrollYProgress } = useViewportScroll();
+  const yAnim = useTransform(scrollYProgress, [0, 1], [1000, 0]);
+  const reverseXAnim = useTransform(scrollYProgress, [0, 1], [-1000, 0]);
 
   return (
     <React.Fragment>
@@ -56,7 +61,8 @@ export default function IntroComponent() {
         <Container maxWidth="md">
           <Grid container spacing={4}>
             {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
+              <div style={{ y: yAnim }}>
+              <Grid item key={card} xs={12} sm={6} md={4} >
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
@@ -71,6 +77,7 @@ export default function IntroComponent() {
                   </CardContent>
                 </Card>
               </Grid>
+              </div>
             ))}
           </Grid>
         </Container>

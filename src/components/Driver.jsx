@@ -1,12 +1,18 @@
 import { Button, Typography } from "@material-ui/core";
 import React from "react";
 import { drivercomponent1 } from "./images/images";
+import { motion } from 'framer-motion';
 
 import "./Driver.css";
+import { useTransform, useViewportScroll } from "framer-motion";
 
 const DriverComponent = () => {
+
+  const { scrollYProgress } = useViewportScroll();
+  const xAnim = useTransform(scrollYProgress, [0, 1], [1000, 0]);
+  const reverseXAnim = useTransform(scrollYProgress, [0, 1], [-1000, 0]);
   return (
-    <div className="driverContainer">
+    <motion.div className="driverContainer" style={{y: xAnim}}>
       <div className="containerImg">
         <img className="driverImg" src={drivercomponent1} alt="driverimg" />
       </div>
@@ -23,7 +29,7 @@ const DriverComponent = () => {
         </Typography>
         <button className="driverButton">Offer a ride</button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
