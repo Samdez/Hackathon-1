@@ -1,69 +1,45 @@
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+.profile-title {
+  margin-top: 20px;
 }
 
-.form {
-  max-width: 800px;
-  margin: auto;
-  margin-top: 80px;
-  margin-bottom: 80px;
+.avatar {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  height: 100%;
+  width: 50px;
+  margin-top: 40px;
 }
 
-.p {
-  color: #bf1650;
+.icon-likes {
   text-align: center;
 }
 
-select,
-input {
-  display: block;
-  box-sizing: border-box;
-  width: 100%;
-  border-radius: 4px;
-  border: 1px solid black;
-  background-color: whitesmoke;
-  padding: 10px 15px;
-  margin-bottom: 15px;
-  font-size: 14px;
+.profile-name {
+  text-align: center;
 }
 
-input[type="submit"],
-.button {
-  text-transform: uppercase;
-  border: none;
-  margin-top: 20px;
-  padding: 20px;
-  font-size: 16px;
-  font-weight: 100;
-  letter-spacing: 10px;
-  display: block;
-  appearance: none;
-  border-radius: 4px;
-  width: 100%;
-  font-weight: lighter;
+.profile-statut {
+  text-align: center;
 }
 
-.buttonBlack {
-  background: black;
-  border: 1px solid white;
+.profile-speaking {
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 40px;
 }
 
-.container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
+.p-infos {
+  vertical-align: text-top;
 }
 
-.counter {
-  font-weight: 400;
-  background: white;
-  color: black;
-  padding: 10px 15px;
-  border-radius: 4px;
-  position: fixed;
-  top: 20px;
-  right: 30px;
-  z-index: 9999999;
+.div-infos {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.profile-icon {
+  height: 100%;
+  width: 30px;
+  margin: 5px;
 }
