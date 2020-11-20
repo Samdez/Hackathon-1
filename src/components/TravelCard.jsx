@@ -1,13 +1,15 @@
 import React from "react";
 import "./TravelCard.css";
 import { Avatar, CardHeader, CardMedia, Grid } from "@material-ui/core";
+
+import Button from "@material-ui/core/Button";
+import { NavLink, Link } from "react-router-dom";
+
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-
-import Button from "@material-ui/core/Button";
-import { NavLink, Link } from "react-router-dom";
+import LinearScaleIcon from "@material-ui/icons/LinearScale";
 
 const useStyles = makeStyles((theme) => ({
   typography: {
@@ -34,6 +36,20 @@ const useStyles = makeStyles((theme) => ({
     margin: "2rem",
     minWidth: "30vw",
     maxWidth: "45vw",
+  },
+  path: {
+    transform: "rotate(90deg)",
+  },
+  flex: {
+    display: "flex",
+    justifyContent: "flex-start",
+  },
+  icon: {
+    height: "100%",
+  },
+  spaceBetween: {
+    display: "flex",
+    justifyContent: "space-between",
   },
 }));
 

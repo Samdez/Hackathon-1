@@ -1,0 +1,45 @@
+.profile-title {
+  margin-top: 20px;
+}
+
+.avatar {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  height: 100%;
+  width: 50px;
+  margin-top: 40px;
+}
+
+.icon-likes {
+  text-align: center;
+}
+
+.profile-name {
+  text-align: center;
+}
+
+.profile-statut {
+  text-align: center;
+}
+
+.profile-speaking {
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 40px;
+}
+
+.p-infos {
+  vertical-align: text-top;
+}
+
+.div-infos {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.profile-icon {
+  height: 100%;
+  width: 30px;
+  margin: 5px;
+}

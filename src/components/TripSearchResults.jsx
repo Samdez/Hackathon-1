@@ -2,7 +2,6 @@ import Axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import tripContext from '../contexts/tripContext';
 import moment from 'moment';
-import { makeStyles } from '@material-ui/core/styles';
 import TravelCard from "./TravelCard";
 import {
   carriage1,
@@ -22,18 +21,15 @@ import {
   portrait7,
   portrait8
 } from './images/images'
-import { Grid } from "@material-ui/core";
+import { CircularProgress, Grid, Typography } from "@material-ui/core";
 import NoTripsAvailable from "./NoTripsAvailable";
 
 const TripSearchResults = () => {
   const {
-    departureCity,
-    arrivalCity,
     selectedDate,
     departureCityCoordinates,
     arrivalCityCoordinates,
   } = useContext(tripContext);
-  // const formatedDate = ;
   const apiURL = 'https://public-api.blablacar.com';
   const search = '/api/v3/trips/?';
   const key = 'key=dNuojyjDSdhDtLc0HWMRHie0u98j2En9';
@@ -42,10 +38,14 @@ const TripSearchResults = () => {
   const formatDepartureCityCoordinates = `&from_coordinate=${departureCityCoordinates}`
   const formatArrivalCityCoordinates = `&to_coordinate=${arrivalCityCoordinates}`
   const [tripList, setTripList] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const format1 = "yyyy-M-DT";
+  const [tripIsLoading, setTripIsLoading] = useState(true);
+  const [nameIsLoading, setNameIsLoading] = useState(true);
+  const format1 = "YY-M-DDT";
   const formatDate = moment(selectedDate).format(format1);
-  const formatedDate = `&start_date_local=${formatDate}08:00:00&`
+  const month = moment(selectedDate).format('MM');
+  const day = moment(selectedDate).format('DD');
+  const [nameDay, setNameDay] = useState('');
+  const formatedDate = `&start_date_local=20${formatDate}08:00:00&`
   const tripRequest = apiURL.concat('', search, key, formatDepartureCityCoordinates, formatArrivalCityCoordinates, currency, formatedDate, radius);
 
   const carriagesImagesArray = [
@@ -71,42 +71,56 @@ const TripSearchResults = () => {
     Axios.get(tripRequest)
     .then(res => res.data)
     .then(data => setTripList(data.trips))      
-    .then(setIsLoading(false));
+    .then(setTripIsLoading(false));
     randomizeArray(carriagesImagesArray);
     randomizeArray(portraitsArray);
+
+    Axios.get(`https://api.abalin.net/namedays?country=fr&month=${month}&day=${day}`)
+    .then(res => res.data)
+    .then(data => setNameDay(data.data.namedays.fr))
+    .then(setNameIsLoading(false))
   }, [formatedDate])
 
-  if(isLoading){
-    return <h1>Loading</h1>
+  if(tripIsLoading || nameIsLoading){
+    return <CircularProgress />
   }
 
-  if (tripList.length === 0){
-    return <NoTripsAvailable />
+  //TODO: add loader and prevent notripsavailable from showing
+
+  if (tripIsLoading && tripList.length === 0){
+    return <NoTripsAvailable date={formatedDate}/>
   }
+  
 
 
   return ( 
+    
     <Grid
     container
     direction='column'
     justify='space-around'
     alignItems='center'
     >
+      {/* <Typography>Happy nameday to all {nameDay}s!</Typography> */}
     {tripList.map((tripListItem, index) => {
       const link = tripListItem.link
       const idIndex = link.indexOf('&') + 4;
       const id = link.slice(idIndex)
-      return <TravelCard 
+      return (
+      <TravelCard 
       key={id}
       departure = {tripListItem.waypoints[0].place.city}
-      arrival = {tripListItem.waypoints.reverse()[0].place.city}
+      arrival = {tripListItem.waypoints[1].place.city}
       duration = {Math.round(tripListItem.duration_in_seconds / 3600) * 10}
       price = {tripListItem.price.amount}
       backgroundImage= {carriagesImagesArray[index]}
       portrait= {portraitsArray[index]}
       />
+      
+      )
     })}
     </Grid>
+      
    );
 }
  
