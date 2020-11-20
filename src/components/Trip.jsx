@@ -1,4 +1,4 @@
-import React, { forwardRef, useContext, useState } from "react";
+import React, { forwardRef, useContext, useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
@@ -16,8 +16,6 @@ import { DatePicker } from "@material-ui/pickers";
 import tripContext from "../contexts/tripContext";
 import { Grid } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import { Box } from "@material-ui/core";
-import TripSearchResults from "./TripSearchResults";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -62,6 +60,17 @@ function Trip() {
     setOpenArrival(false);
   };
 
+  const [ableToValidate, setAbleToValidate] = useState(false);
+  useEffect(() => {
+    if (
+      departureCity !== "Select your departure city" &&
+      arrivalCity !== "Select your arrival city" &&
+      selectedDate !== "1920-11-20"
+    ) {
+      setAbleToValidate(true);
+    }
+  }, [arrivalCity, departureCity, selectedDate]);
+
   const cities = [
     { name: "Bordeaux", coordinates: "44.8333, -0.5667" },
     { name: "Lille", coordinates: "50.6333, 3.0667" },
@@ -72,7 +81,6 @@ function Trip() {
     { name: "Toulouse", coordinates: "43.604652, 1.444209" },
   ];
 
-  console.log(selectedDate._d);
   return (
     <Grid
       container
@@ -191,21 +199,18 @@ function Trip() {
       </Grid>
 
       {/* Date selection */}
-      {/* Date format : "yyyy-M-dTHH:mm:ss" */}
-
       <Grid style={{ margin: 25 }} xs={9}>
         <DatePicker
           label="Departure date"
           value={selectedDate}
           onChange={handleDateChange}
           animateYearScrolling
-
-          // format="MM/dd/yyyy"
-          // maxDate={Date(2019 - 01 - 01)}
         />
       </Grid>
       <Grid style={{ margin: 25 }} xs={9}>
         <Button
+          disabled={!ableToValidate}
+          // onClick={() => checkInput()}
           component={Link}
           to={"/trip-search-results"}
           variant="contained"
