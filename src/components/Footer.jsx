@@ -6,7 +6,7 @@ import {
   logoYoutube,
 } from "./images/images";
 import "./Footer.css";
-import { theme } from '../App'
+import { theme } from "../App";
 import { Typography } from "@material-ui/core";
 
 function Footer() {
@@ -15,10 +15,10 @@ function Footer() {
       <div className="footerMain">
         <div className="leftArea">
           <img className="logo" src={logo} alt="Logo" />
-          <Typography style={{ textAlign: "justify" }} >
-            BlablaCalèche is the first carriage pooling solution in the word. We
-            put passengers and drivers in relation to share a trip, everywhere,
-            for free.
+          <Typography style={{ textAlign: "justify" }}>
+            BlablaCalèche is the first carriage pooling solution in the world.
+            We put passengers and drivers in relation to share a trip,
+            everywhere, for free.
           </Typography>
         </div>
         <div className="middleArea">
@@ -43,7 +43,10 @@ function Footer() {
         </div>
       </div>
       <div className="baselineArea">
-        <Typography className="footerP"> COPYRIGHT © 2020 | BLABLAGENCY</Typography>
+        <Typography className="footerP">
+          {" "}
+          COPYRIGHT © 2020 | BLABLAGENCY
+        </Typography>
       </div>
     </footer>
   );
