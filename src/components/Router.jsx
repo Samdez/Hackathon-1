@@ -10,11 +10,9 @@ import TripSearchResults from "./TripSearchResults";
 
 const Router = () => {
   const [departureCity, setDepartureCity] = useState(
-    "Selectionnez votre ville de départ"
+    "Select your departure city"
   );
-  const [arrivalCity, setArrivalCity] = useState(
-    "Selectionnez votre ville d'arrivée"
-  );
+  const [arrivalCity, setArrivalCity] = useState("Select your arrival city");
   const [departureCityCoordinates, setDepartureCityCoordinates] = useState("");
   const [arrivalCityCoordinates, setArrivalCityCoordinates] = useState("");
   const [selectedDate, handleDateChange] = useState(new Date("1920-11-20"));
