@@ -1,99 +1,89 @@
-import React, { useContext } from "react";
-import {
-  CardText,
-  CardBody,
-  CardTitle,
-  Col,
-  Button,
-  CardImg,
-} from "reactstrap";
-import { useState } from "react";
-import { AiOutlineStar, AiTwotoneStar } from "react-icons/ai";
+
 import "./TravelCard.css";
-import tripContext from "../contexts/tripContext";
+import { Avatar, CardHeader, CardMedia, Grid } from "@material-ui/core";
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
+import LinearScaleIcon from '@material-ui/icons/LinearScale';
 
-function TravelCard({ arrival, departure, duration, price}) {
-  const [isFavorite, setIsFavorite] = useState(false);
-  const {
-    departureCity,
-    arrivalCity,
-    selectedDate,
-  } = useContext(tripContext);
+const useStyles = makeStyles((theme) => ({
+  media: {
+    height: 0,
+    paddingTop: '56.25%', // 16:9
+  },
+  expand: {
+    transform: 'rotate(0deg)',
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    }),
+  },
+  expandOpen: {
+    transform: 'rotate(180deg)',
+  },
+  avatar: {
+    backgroundSize: 'cover',
+  },
+  margin: {
+    margin: '2rem',
+    minWidth: '30vw',
+    maxWidth: '45vw'
+  },
+  path: {
+    transform: 'rotate(90deg)',
+  },
+  flex: {
+    display: 'flex',
+    justifyContent: 'flex-start'
+  },
+  icon: {
+    height: '100%',
+  },
+  spaceBetween: {
+    display: 'flex',
+    justifyContent: 'space-between'
+  }
+}));
 
+const horseIconsArray = [];
+horseIconsArray.push()
+
+function TravelCard({ arrival, departure, duration, price, backgroundImage, portrait }) {
+  const classes = useStyles();
   return (
-    <>
-      <Col style={{ display: "flex", justifyContent: "center" }}>
-        <CardBody className="card-body">
-          <CardTitle tag="h2" style={{ textAlign: "center" }}>
-            {departureCity} / {arrivalCity}
-          </CardTitle>
-
-          <div className="bloc-card">
-            <div className="ville-depart">
-              <CardText style={{ fontWeight: "bold" }}>{departure}</CardText>
-            </div>
-            <CardText>Durée : {duration}h</CardText>
-            <div className="ville-arrivee">
-              <CardText style={{ fontWeight: "bold" }}>{arrival}</CardText>
-            </div>
+    <Grid className={classes.margin} item xs={12}>
+      <Card className={classes.root}>
+        <CardHeader
+          className={classes.flex}
+          avatar={
+            <Avatar aria-label="recipe" src={portrait} />
+          }
+          flexWrap='wrap'
+          subheader={`${departure} / ${arrival}`}
+        />
+        <div className={classes.spaceBetween}>
+        <div className={classes.flex}>
+          <LinearScaleIcon className={classes.path} style={{ fontSize: 40 }}  />
+          <div>
+            <Typography variant='h5'>Estimated duration : {duration + 'hours'}</Typography>
           </div>
+        </div>
 
-          <CardText style={{ fontWeight: "bold", textAlign: "center" }}>
-            {price}€
-          </CardText>
-
-          <CardText style={{ textAlign: "center" }}>
-            Have a god trip with BlaBlaCalèche
-          </CardText>
-          <div
-            className="favoris"
-            style={{ display: "flex", justifyContent: "space-between" }}
-          >
-            <CardImg src="" alt="Card image cap" />
-
-            <Button
-              style={{
-                backgroundColor: " rgb(247, 244, 244)",
-                border: "none",
-                outline: "none",
-              }}
-              onClick={() => {
-                setIsFavorite(!isFavorite);
-              }}
-            >
-              {isFavorite ? (
-                <AiTwotoneStar size="1.5rem" color="#F0C300" />
-              ) : (
-                <AiOutlineStar
-                  size="1.5rem"
-                  backGroundColor="red"
-                  color="#585E68"
-                />
-              )}
-            </Button>
-          </div>
-        </CardBody>
-      </Col>
-      <div
-        style={{
-          textAlign: "center",
-          marginTop: "10px",
-        }}
-      >
-        <Button
-          style={{
-            border: "1px solid black",
-            borderRadius: "20px",
-            height: "30px",
-            width: "150px",
-            outline: "none",
-          }}
-        >
-          Choisir ce Trajet
-        </Button>
-      </div>
-    </>
-  );
+        </div>
+        <CardMedia
+          className={classes.media}
+          image={backgroundImage}
+          title="carriage"
+        />
+        <CardContent>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {Math.round(price / 3.2)} francs
+        </Typography>
+        </CardContent>
+      </Card>
+    </Grid>
+  )
 }
 
 export default TravelCard;
