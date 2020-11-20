@@ -87,7 +87,6 @@ function Trip() {
       direction="column"
       justify="space-around"
       alignItems="center"
-      style={{ marginTop: "100px" }}
     >
       {/* Departure Button */}
       <Grid style={{ margin: 50 }} xs={9}>
