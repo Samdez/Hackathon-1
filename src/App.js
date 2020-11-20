@@ -13,7 +13,6 @@ export const theme = createMuiTheme({
     fontSize: '3em',
   }
 })
-function App() {
 
 
 
