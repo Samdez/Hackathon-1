@@ -12,6 +12,7 @@ import phone from "./telephone.png";
 import music from "./phonograph.png";
 import chat from "./chat.svg";
 import smoke from "./no-smoking.svg";
+import backgroundprofile from "./backgroundprofile.jpg";
 
 export {
   passengerBg,
@@ -28,4 +29,5 @@ export {
   chat,
   music,
   smoke,
+  backgroundprofile,
 };

@@ -1,5 +1,14 @@
-import { avatar, mail, phone, music, chat, smoke } from "./images/index";
+import {
+  avatar,
+  mail,
+  phone,
+  music,
+  chat,
+  smoke,
+  passengerBg,
+} from "./images/index";
 import "./MyProfile.css";
+
 import { makeStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
 
@@ -15,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
 function MyProfile() {
   const classes = useStyles();
   return (
-    <div className="profile">
+    <div className="profile" style={{ backgroundImage: `url(${passengerBg})` }}>
       <h1 className="profile-title">My Profile</h1>
       <hr></hr>
       <Avatar className="avatar" alt="Remy Sharp" src={avatar} />
