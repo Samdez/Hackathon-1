@@ -99,7 +99,7 @@ const TripSearchResults = () => {
     justify='space-around'
     alignItems='center'
     >
-      <Typography>Happy nameday to all {nameDay}s!</Typography>
+      {/* <Typography>Happy nameday to all {nameDay}s!</Typography> */}
     {tripList.map((tripListItem, index) => {
       const link = tripListItem.link
       const idIndex = link.indexOf('&') + 4;
