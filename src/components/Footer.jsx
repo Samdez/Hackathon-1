@@ -43,10 +43,7 @@ function Footer() {
         </div>
       </div>
       <div className="baselineArea">
-        <Typography className="footerP">
-          {" "}
-          COPYRIGHT © 2020 | BLABLAGENCY
-        </Typography>
+        <Typography className="footerP"> COPYRIGHT © 1920 | BLABLAGENCY</Typography>
       </div>
     </footer>
   );
