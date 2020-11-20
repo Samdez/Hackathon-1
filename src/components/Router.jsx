@@ -8,6 +8,7 @@ import Layout from "./Layout";
 import Trip from "./Trip";
 import MyProfile from "./MyProfile";
 import TripSearchResults from "./TripSearchResults";
+import PopCard from "./PopCard";
 
 const Router = () => {
   const [departureCity, setDepartureCity] = useState(
@@ -39,6 +40,7 @@ const Router = () => {
             <Route path="/trip-search-results" component={TripSearchResults} />
             <Route path="/trip" component={Trip} />
             <Route exact path="/" component={Home} />
+            <Route exact path="/pop-confirmation" component={PopCard} />
           </Switch>
         </Layout>
       </tripContext.Provider>
