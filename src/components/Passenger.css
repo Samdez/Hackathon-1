@@ -3,7 +3,14 @@
   flex-direction: column;
   align-items: center;
   background-image: url("../components/images/passengerBg.jpg");
+  background-size: cover;
+  background-position: center;
+  -webkit-background-size: cover;
   width: 100%;
+}
+
+.passengerTitle {
+  text-align: center;
 }
 
 .mainLogo {
@@ -11,6 +18,6 @@
   width: 40%;
 }
 
-p {
+.maintext {
   margin-bottom: 200px;
 }

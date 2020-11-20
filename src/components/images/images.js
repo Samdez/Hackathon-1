@@ -6,7 +6,11 @@ import logoYoutube from "./logoYoutube.png";
 import logo from "./main-logo.png";
 import user from "./man-with-tie-profile.png";
 import carriage from "./carriage.png";
-
+import drivercomponent1 from "./oldcar.jpg";
+import drivercomponent3 from "./drivercomponent3.jpg";
+import caleche from "./caleche.png";
+import horse from "./horse.png";
+import moustache from "./moustache.png";
 import carriage1 from './carriages/carriage1.jpg';
 import carriage2 from './carriages/carriage2.jpg';
 import carriage3 from './carriages/carriage3.jpg';
@@ -15,7 +19,6 @@ import carriage5 from './carriages/carriage5.jpg';
 import carriage6 from './carriages/carriage1.jpg';
 import carriage7 from './carriages/carriage7.jpg';
 import carriage8 from './carriages/carriage8.jpg';
-
 import portrait1 from './carriages/portrait1.jpg';
 import portrait2 from './carriages/portrait2.jpg';
 import portrait3 from './carriages/portrait3.jpg';
@@ -34,6 +37,12 @@ export {
   logoYoutube,
   logo,
   carriage,
+  caleche,
+  moustache,
+  horse,
+  user,
+  drivercomponent1,
+  drivercomponent3,
   user,
   carriage1,
   carriage2,
