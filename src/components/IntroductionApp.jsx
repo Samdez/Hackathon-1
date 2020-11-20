@@ -37,7 +37,7 @@ const cards = [
   },
   {
     image: [caleche],
-    title: "EASY GOING",
+    title: "EASY GOINT",
     description:
       "Enter your exact address to find the perfect ride. Choose who you’d like to travel with. And book!We take the time to get to know our members. All profiles and ratings are checked. IDs are properly verified. So you know who you’re travelling with.",
   },
@@ -52,7 +52,7 @@ const cards = [
 export default function IntroComponent() {
   const classes = useStyles();
   const { scrollYProgress } = useViewportScroll();
-  const yAnim = useTransform(scrollYProgress, [0, 1], [1000, 0]);
+  const yAnim = useTransform(scrollYProgress, [0, 1], [300, 0]);
 
   return (
     <React.Fragment>
@@ -61,8 +61,8 @@ export default function IntroComponent() {
           <Grid container spacing={4}>
             {cards.map((card) => (
               <Grid item key={card} xs={12} sm={6} md={4} >
-                <motion.div style={{ y: yAnim }}>
                 <Card className={classes.card}>
+                <motion.div style={{y: yAnim}}>
                   <CardMedia
                     className={classes.cardMedia}
                     image={card.image}
@@ -74,8 +74,8 @@ export default function IntroComponent() {
                     </Typography>
                     <Typography>{card.description}</Typography>
                   </CardContent>
-                </Card>
                 </motion.div>
+                </Card>
               </Grid>
             ))}
           </Grid>
