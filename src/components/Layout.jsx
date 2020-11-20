@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
   return (
     <div>
       <Header />
-      <Container>{children}</Container>
+      <Container >{children}</Container>
       {/* <PassengerComponent />
       <DriverComponent />
       <IntroComponent /> */}

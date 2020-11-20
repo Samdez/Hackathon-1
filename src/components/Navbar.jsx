@@ -6,6 +6,7 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
+import './navbar.css';
 
 import {
   BrowserRouter as Router,
@@ -44,17 +45,18 @@ export default function ButtonAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="fixed">
+      <AppBar position="sticky">
         <Box bgcolor="#FFFFFF">
           <Toolbar>
             <div>
-              {/* <Button
+              <Button
                 aria-controls="simple-menu"
                 aria-haspopup="true"
                 onClick={handleClick}
+                className='hide'
               >
                 <MenuIcon />
-              </Button> */}
+              </Button>
               <Menu
                 id="simple-menu"
                 anchorEl={anchorEl}
@@ -95,6 +97,7 @@ export default function ButtonAppBar() {
                     width={90}
                     src={logo}
                     alt="logo icon navbar"
+                    className='hideIcons'
                   />
                 </Button>
               </NavLink>
@@ -105,6 +108,7 @@ export default function ButtonAppBar() {
                     width={30}
                     src={user}
                     alt="user icon navbar"
+                    className='hideIcons'
                   />
                 </Button>
               </NavLink>
@@ -115,6 +119,7 @@ export default function ButtonAppBar() {
                     width={30}
                     src={carriage}
                     alt="carriage icon navbar"
+                    className='hideIcons'
                   />
                 </Button>
               </NavLink>
