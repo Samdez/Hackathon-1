@@ -90,9 +90,10 @@ const TripSearchResults = () => {
   // if (!tripIsLoading && tripList.length === 0){
   //   return <NoTripsAvailable date={formatedDate}/>
   // }
-
+  
 
   return ( 
+    
     <Grid
     container
     direction='column'
@@ -104,7 +105,8 @@ const TripSearchResults = () => {
       const link = tripListItem.link
       const idIndex = link.indexOf('&') + 4;
       const id = link.slice(idIndex)
-      return <TravelCard 
+      return (
+      <TravelCard 
       key={id}
       departure = {tripListItem.waypoints[0].place.city}
       arrival = {tripListItem.waypoints.reverse()[0].place.city}
@@ -113,8 +115,11 @@ const TripSearchResults = () => {
       backgroundImage= {carriagesImagesArray[index]}
       portrait= {portraitsArray[index]}
       />
+      
+      )
     })}
     </Grid>
+      
    );
 }
  

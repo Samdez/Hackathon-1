@@ -52,8 +52,7 @@ const cards = [
 export default function IntroComponent() {
   const classes = useStyles();
   const { scrollYProgress } = useViewportScroll();
-  const yAnim = useTransform(scrollYProgress, [0, 1], [1000, 0]);
-  const reverseXAnim = useTransform(scrollYProgress, [0, 1], [-1000, 0]);
+  const yAnim = useTransform(scrollYProgress, [0, 1], [100, 0]);
 
   return (
     <React.Fragment>
@@ -61,7 +60,6 @@ export default function IntroComponent() {
         <Container maxWidth="md">
           <Grid container spacing={4}>
             {cards.map((card) => (
-              <div style={{ y: yAnim }}>
               <Grid item key={card} xs={12} sm={6} md={4} >
                 <Card className={classes.card}>
                   <CardMedia
@@ -77,7 +75,6 @@ export default function IntroComponent() {
                   </CardContent>
                 </Card>
               </Grid>
-              </div>
             ))}
           </Grid>
         </Container>
