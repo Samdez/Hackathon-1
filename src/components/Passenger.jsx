@@ -1,3 +1,4 @@
+import { Typography } from "@material-ui/core";
 import React from "react";
 import { logo } from "./images/images";
 
@@ -7,9 +8,9 @@ function PassengerComponent() {
   return (
     <div className="passengerBg">
       <img className="mainLogo" src={logo} alt="" />
-      <h1 className="passengerTitle">Passengers, welcome on BlaBlaCalèche.</h1>
-      <p className="maintext">Share a carriage where ever you want !</p>
-      <p className="maintext">Let's go for a ride !</p>
+      <Typography variant="h1">Passengers, welcome on BlaBlaCalèche.</Typography>
+      <Typography>Share a carriage where ever you want !</Typography>
+      <Typography>Let's go for a ride !</Typography>
     </div>
   );
 }
