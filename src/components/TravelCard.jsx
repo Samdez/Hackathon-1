@@ -42,12 +42,13 @@ function TravelCard({ arrival, departure, duration, price, backgroundImage, port
           }
 
           title={departure + '/' + arrival}
+          flexWrap='wrap'
           subheader={duration + 'hours'}
         />
         <CardMedia
           className={classes.media}
           image={backgroundImage}
-          title="Paella dish"
+          title="carriage"
         />
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
