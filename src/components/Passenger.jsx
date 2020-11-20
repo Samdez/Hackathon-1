@@ -1,6 +1,7 @@
 import { Typography } from "@material-ui/core";
 import React from "react";
 import { logo } from "./images/images";
+import Trip from "./Trip";
 import { motion, useTransform, useViewportScroll } from "framer-motion";
 import { fade } from "./animation";
 
@@ -15,11 +16,12 @@ function PassengerComponent() {
       className="passengerBg"
     >
       <img className="mainLogo" src={logo} alt="" />
-      <Typography variant="h1">
+      <Typography className="textPassanger" variant="h1">
         Passengers, welcome on BlaBlaCalèche.
       </Typography>
       <Typography>Share a carriage where ever you want !</Typography>
       <Typography>Let's go for a ride !</Typography>
+      <Trip />
     </motion.div>
   );
 }

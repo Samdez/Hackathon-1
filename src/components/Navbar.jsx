@@ -44,7 +44,7 @@ export default function ButtonAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Box bgcolor="#FFFFFF">
           <Toolbar>
             <div>
