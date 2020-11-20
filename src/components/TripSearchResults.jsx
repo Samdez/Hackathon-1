@@ -23,6 +23,7 @@ import {
   portrait8
 } from './images/images'
 import { Grid } from "@material-ui/core";
+import NoTripsAvailable from "./NoTripsAvailable";
 
 const TripSearchResults = () => {
   const {
@@ -79,6 +80,9 @@ const TripSearchResults = () => {
     return <h1>Loading</h1>
   }
 
+  if (tripList.length === 0){
+    return <NoTripsAvailable />
+  }
 
 
   return ( 
@@ -96,7 +100,7 @@ const TripSearchResults = () => {
       key={id}
       departure = {tripListItem.waypoints[0].place.city}
       arrival = {tripListItem.waypoints.reverse()[0].place.city}
-      duration = {Math.round(tripListItem.duration_in_seconds / 3600)}
+      duration = {Math.round(tripListItem.duration_in_seconds / 3600) * 10}
       price = {tripListItem.price.amount}
       backgroundImage= {carriagesImagesArray[index]}
       portrait= {portraitsArray[index]}

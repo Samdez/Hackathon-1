@@ -24,6 +24,7 @@ import portrait5 from './carriages/portrait5.jpg';
 import portrait6 from './carriages/portrait6.jpg';
 import portrait7 from './carriages/portrait7.jpg';
 import portrait8 from './carriages/portrait8.jpg';
+import portrait9 from './carriages/portrait9.jpg';
 
 export {
   passengerBg,
@@ -49,5 +50,6 @@ export {
   portrait5, 
   portrait6, 
   portrait7, 
-  portrait8
+  portrait8,
+  portrait9
 };

@@ -51,7 +51,7 @@ function TravelCard({ arrival, departure, duration, price, backgroundImage, port
         />
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
-            {price}€
+            {Math.round(price / 3.2)} francs
         </Typography>
         </CardContent>
       </Card>
