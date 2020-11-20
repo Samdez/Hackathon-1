@@ -6,6 +6,7 @@ import tripContext from "../contexts/tripContext";
 import Home from "./Home";
 import Layout from "./Layout";
 import Trip from "./Trip";
+import MyProfile from "./MyProfile";
 import TripSearchResults from "./TripSearchResults";
 
 const Router = () => {
@@ -34,6 +35,7 @@ const Router = () => {
       >
         <Layout>
           <Switch>
+            <Route path="/myprofile" component={MyProfile} />
             <Route path="/trip-search-results" component={TripSearchResults} />
             <Route path="/trip" component={Trip} />
             <Route exact path="/" component={Home} />

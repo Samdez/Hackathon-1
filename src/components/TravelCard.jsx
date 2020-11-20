@@ -5,11 +5,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import LinearScaleIcon from '@material-ui/icons/LinearScale';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    maxWidth: 345,
-  },
   media: {
     height: 0,
     paddingTop: '56.25%', // 16:9
@@ -29,33 +27,60 @@ const useStyles = makeStyles((theme) => ({
   },
   margin: {
     margin: '2rem',
+    minWidth: '30vw',
+    maxWidth: '45vw'
   },
-  grow: {
-    flexGrow: 1,
+  path: {
+    transform: 'rotate(90deg)',
+  },
+  flex: {
+    display: 'flex',
+    justifyContent: 'flex-start'
+  },
+  icon: {
+    height: '100%',
+  },
+  spaceBetween: {
+    display: 'flex',
+    justifyContent: 'space-between'
   }
 }));
+
+const horseIconsArray = [];
+horseIconsArray.push()
 
 function TravelCard({ arrival, departure, duration, price, backgroundImage, portrait }) {
   const classes = useStyles();
   return (
-    <Grid className={classes.margin} item xs={3}>
+    <Grid className={classes.margin} item xs={12}>
       <Card className={classes.root}>
         <CardHeader
+          className={classes.flex}
           avatar={
-            <Avatar aria-label="recipe" src={portrait} className={classes.avatar} />
+            <Avatar aria-label="recipe" src={portrait} />
           }
-
           title={departure + '/' + arrival}
+          flexWrap='wrap'
           subheader={duration + 'hours'}
         />
+        <div className={classes.spaceBetween}>
+        <div className={classes.flex}>
+          <LinearScaleIcon className={classes.path} style={{ fontSize: 40 }}  />
+          <div>
+            <Typography>{departure}</Typography>
+            <Typography>{arrival}</Typography>
+          </div>
+        </div>
+
+        </div>
         <CardMedia
           className={classes.media}
           image={backgroundImage}
-          title="Paella dish"
+          title="carriage"
         />
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
-            {price}€
+            {Math.round(price / 3.2)} francs
         </Typography>
         </CardContent>
       </Card>
