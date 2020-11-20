@@ -48,13 +48,13 @@ export default function ButtonAppBar() {
         <Box bgcolor="#FFFFFF">
           <Toolbar>
             <div>
-              <Button
+              {/* <Button
                 aria-controls="simple-menu"
                 aria-haspopup="true"
                 onClick={handleClick}
               >
                 <MenuIcon />
-              </Button>
+              </Button> */}
               <Menu
                 id="simple-menu"
                 anchorEl={anchorEl}
