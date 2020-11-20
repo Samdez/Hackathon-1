@@ -4,6 +4,7 @@
   align-items: center;
   background-image: url("../components/images/passengerBg.jpg");
   background-size: cover;
+  background-attachment: fixed;
   background-position: center;
   -webkit-background-size: cover;
   width: 100%;
