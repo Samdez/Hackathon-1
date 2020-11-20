@@ -40,12 +40,12 @@ const TripSearchResults = () => {
   const [tripList, setTripList] = useState([]);
   const [tripIsLoading, setTripIsLoading] = useState(true);
   const [nameIsLoading, setNameIsLoading] = useState(true);
-  const format1 = "yyyy-M-DDT";
+  const format1 = "YY-M-DDT";
   const formatDate = moment(selectedDate).format(format1);
   const month = moment(selectedDate).format('MM');
   const day = moment(selectedDate).format('DD');
   const [nameDay, setNameDay] = useState('');
-  const formatedDate = `&start_date_local=${formatDate}08:00:00&`
+  const formatedDate = `&start_date_local=20${formatDate}08:00:00&`
   const tripRequest = apiURL.concat('', search, key, formatDepartureCityCoordinates, formatArrivalCityCoordinates, currency, formatedDate, radius);
 
   const carriagesImagesArray = [
@@ -87,9 +87,9 @@ const TripSearchResults = () => {
 
   //TODO: add loader and prevent notripsavailable from showing
 
-  // if (!tripIsLoading && tripList.length === 0){
-  //   return <NoTripsAvailable date={formatedDate}/>
-  // }
+  if (tripIsLoading && tripList.length === 0){
+    return <NoTripsAvailable date={formatedDate}/>
+  }
   
 
 
@@ -110,7 +110,7 @@ const TripSearchResults = () => {
       <TravelCard 
       key={id}
       departure = {tripListItem.waypoints[0].place.city}
-      arrival = {tripListItem.waypoints.reverse()[0].place.city}
+      arrival = {tripListItem.waypoints[1].place.city}
       duration = {Math.round(tripListItem.duration_in_seconds / 3600) * 10}
       price = {tripListItem.price.amount}
       backgroundImage= {carriagesImagesArray[index]}
