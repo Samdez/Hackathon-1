@@ -1,5 +1,5 @@
 import React, { forwardRef, useContext, useEffect, useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -19,7 +19,7 @@ import { Link } from "react-router-dom";
 import { createMuiTheme } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  appBar: {
+  appBar2: {
     position: "relative",
   },
   title: {
@@ -32,6 +32,14 @@ const useStyles = makeStyles((theme) => ({
   },
   background2: {
     backgroundColor: "white",
+  },
+  tripGrid: {
+    display: "flex",
+    flexDirection: "column",
+    justify: "space-around",
+    maxWidth: "80vw",
+    flexWrap: "nowrap",
+    alignItems: "center",
   },
 }));
 
@@ -89,13 +97,35 @@ function Trip() {
     }
   }, [departureCity, arrivalCity, selectedDate]);
 
+  const pickerTheme = createMuiTheme({
+    overrides: {
+      MuiPickersToolbar: {
+        toolbar: {
+          backgroundColor: "#e7bd70",
+          fontFamily: "Limelight",
+        },
+      },
+      MuiPickersDay: {
+        daySelected: {
+          backgroundColor: "#e7bd70",
+        },
+      },
+      MuiTypography: {
+        h4: {
+          fontFamily: "Limelight",
+        },
+        body1: {
+          fontFamily: "Limelight",
+        },
+        body2: {
+          fontFamily: "Limelight",
+        },
+      },
+    },
+  });
+
   return (
-    <Grid
-      container
-      direction="column"
-      justify="space-around"
-      alignItems="center"
-    >
+    <Grid container className={classes.tripGrid}>
       {/* Departure Button */}
       <Grid style={{ margin: 50 }} xs={9}>
         <Grid>
@@ -114,7 +144,7 @@ function Trip() {
           onClose={handleCloseDeparture}
           TransitionComponent={Transition}
         >
-          <AppBar className={classes.appBar}>
+          <AppBar className={classes.appBar2}>
             <Toolbar>
               <IconButton
                 edge="start"
@@ -170,7 +200,7 @@ function Trip() {
           onClose={handleCloseArrival}
           TransitionComponent={Transition}
         >
-          <AppBar className={classes.appBar}>
+          <AppBar className={classes.appBar2}>
             <Toolbar>
               <IconButton
                 edge="start"
@@ -210,12 +240,14 @@ function Trip() {
 
       {/* Date selection */}
       <Grid style={{ margin: 25 }} xs={9}>
-        <DatePicker
-          label="Departure date"
-          value={selectedDate}
-          onChange={handleDateChange}
-          animateYearScrolling
-        />
+        <ThemeProvider theme={pickerTheme}>
+          <DatePicker
+            label="Departure date"
+            value={selectedDate}
+            onChange={handleDateChange}
+            animateYearScrolling
+          />
+        </ThemeProvider>
       </Grid>
       <Grid style={{ marginBottom: 25 }} xs={9}>
         <Button
