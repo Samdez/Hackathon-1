@@ -1,6 +1,6 @@
 import { Avatar, Card, CardContent, CardHeader, CardMedia, Grid, makeStyles, Typography } from "@material-ui/core";
 import { portrait9 } from './images/images';
-const NoTripsAvailable = ({formatedDate}) => {
+const NoTripsAvailable = () => {
     const useStyles = makeStyles((theme) => ({
       media: {
         height: 0,
@@ -44,7 +44,7 @@ const NoTripsAvailable = ({formatedDate}) => {
           
         <CardContent>
           <Typography variant="body2" color="textPrimary" component="p">
-             {formatedDate}Sorry, but it looks like there are no carriages available for this trip yet ! Maybe next century...
+             Sorry, but it looks like there are no carriages available for this trip yet ! Maybe next century...
         </Typography>
         </CardContent>
       </Card>

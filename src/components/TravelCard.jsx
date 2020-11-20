@@ -5,9 +5,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-import LinearScaleIcon from "@material-ui/icons/LinearScale";
+
 import Button from "@material-ui/core/Button";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   typography: {
@@ -35,24 +35,7 @@ const useStyles = makeStyles((theme) => ({
     minWidth: "30vw",
     maxWidth: "45vw",
   },
-  path: {
-    transform: "rotate(90deg)",
-  },
-  flex: {
-    display: "flex",
-    justifyContent: "flex-start",
-  },
-  icon: {
-    height: "100%",
-  },
-  spaceBetween: {
-    display: "flex",
-    justifyContent: "space-between",
-  },
 }));
-
-const horseIconsArray = [];
-horseIconsArray.push();
 
 function TravelCard({
   arrival,
@@ -112,6 +95,7 @@ function TravelCard({
           color="primary"
           onClick={handleClick}
         >
+          {" "}
           Select this trip
         </Button>
       </div>
