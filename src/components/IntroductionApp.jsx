@@ -37,9 +37,9 @@ const cards = [
   },
   {
     image: [caleche],
-    title: "EASY GOINT",
+    title: "EASY GOING",
     description:
-      "Enter your exact address to find the perfect ride. Choose who you’d like to travel with. And book!We take the time to get to know our members. All profiles and ratings are checked. IDs are properly verified. So you know who you’re travelling with.",
+      "Enter your city of departure to find the perfect ride. Choose who you’d like to travel with. And book!We take the time to get to know our members. All profiles and ratings are checked. IDs are properly verified. So you know who you’re travelling with.",
   },
   {
     image: [horse],
