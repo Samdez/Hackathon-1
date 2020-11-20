@@ -2,7 +2,6 @@ import Axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import tripContext from '../contexts/tripContext';
 import moment from 'moment';
-import { makeStyles } from '@material-ui/core/styles';
 import TravelCard from "./TravelCard";
 import {
   carriage1,
@@ -22,7 +21,7 @@ import {
   portrait7,
   portrait8
 } from './images/images'
-import { Grid } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 import NoTripsAvailable from "./NoTripsAvailable";
 
 const TripSearchResults = () => {
@@ -45,6 +44,9 @@ const TripSearchResults = () => {
   const [isLoading, setIsLoading] = useState(true);
   const format1 = "yyyy-M-DT";
   const formatDate = moment(selectedDate).format(format1);
+  const month = moment(selectedDate).format('MM');
+  const day = moment(selectedDate).format('DD');
+  const [nameDay, setNameDay] = useState('');
   const formatedDate = `&start_date_local=${formatDate}08:00:00&`
   const tripRequest = apiURL.concat('', search, key, formatDepartureCityCoordinates, formatArrivalCityCoordinates, currency, formatedDate, radius);
 
@@ -74,6 +76,10 @@ const TripSearchResults = () => {
     .then(setIsLoading(false));
     randomizeArray(carriagesImagesArray);
     randomizeArray(portraitsArray);
+
+    Axios.get(`https://api.abalin.net/namedays?country=fr&month=${month}&day=${day}`)
+    .then(res => res.data)
+    .then(data => setNameDay(data.data.namedays.fr))
   }, [formatedDate])
 
   if(isLoading){
@@ -92,6 +98,7 @@ const TripSearchResults = () => {
     justify='space-around'
     alignItems='center'
     >
+      <Typography>Happy nameday to all {nameDay}s!</Typography>
     {tripList.map((tripListItem, index) => {
       const link = tripListItem.link
       const idIndex = link.indexOf('&') + 4;
