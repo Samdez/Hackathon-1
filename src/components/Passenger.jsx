@@ -1,5 +1,5 @@
 import React from "react";
-import { logo } from "./images";
+import { logo } from "./images/images";
 
 import "./Passenger.css";
 
@@ -7,9 +7,9 @@ function PassengerComponent() {
   return (
     <div className="passengerBg">
       <img className="mainLogo" src={logo} alt="" />
-      <h1>Passengers, welcome on BlaBlaCalèche.</h1>
-      <p>Share a carriage where ever you want !</p>
-      <p>Let's go for a ride !</p>
+      <h1 className="passengerTitle">Passengers, welcome on BlaBlaCalèche.</h1>
+      <p className="maintext">Share a carriage where ever you want !</p>
+      <p className="maintext">Let's go for a ride !</p>
     </div>
   );
 }
