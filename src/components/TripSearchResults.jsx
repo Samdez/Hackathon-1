@@ -1,7 +1,7 @@
 import Axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import tripContext from "../contexts/tripContext";
-import moment from "moment";
+import tripContext from '../contexts/tripContext';
+import moment from 'moment';
 import TravelCard from "./TravelCard";
 import {
   carriage1,
@@ -34,9 +34,9 @@ const TripSearchResults = () => {
   const search = '/api/v3/trips/?';
   const key = 'key=dNuojyjDSdhDtLc0HWMRHie0u98j2En9';
   const radius = "radius_in_meters=100000";
-  const currency = "&locale=fr-FR&currency=EUR";
-  const formatDepartureCityCoordinates = `&from_coordinate=${departureCityCoordinates}`;
-  const formatArrivalCityCoordinates = `&to_coordinate=${arrivalCityCoordinates}`;
+  const currency = '&locale=fr-FR&currency=EUR';
+  const formatDepartureCityCoordinates = `&from_coordinate=${departureCityCoordinates}`
+  const formatArrivalCityCoordinates = `&to_coordinate=${arrivalCityCoordinates}`
   const [tripList, setTripList] = useState([]);
   const [tripIsLoading, setTripIsLoading] = useState(true);
   const [nameIsLoading, setNameIsLoading] = useState(true);
@@ -90,6 +90,7 @@ const TripSearchResults = () => {
   // if (!tripIsLoading && tripList.length === 0){
   //   return <NoTripsAvailable date={formatedDate}/>
   // }
+
 
   return ( 
     <Grid
