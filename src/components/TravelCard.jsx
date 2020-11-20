@@ -51,6 +51,10 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
   },
+  wrap: {
+    display: 'flex',
+    flexWrap: 'wrap'
+  }
 }));
 
 function TravelCard({
@@ -80,6 +84,7 @@ function TravelCard({
       <Grid className={classes.margin} item xs={12}>
         <Card className={classes.root}>
           <CardHeader
+          className={classes.wrap}
             avatar={
               <Avatar
                 aria-label="recipe"
@@ -87,7 +92,7 @@ function TravelCard({
                 className={classes.avatar}
               />
             }
-            title={departure + "/" + arrival}
+            title={departure + " / " + arrival}
             subheader={duration + "hours"}
           />
           <CardMedia

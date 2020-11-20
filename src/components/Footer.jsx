@@ -18,7 +18,7 @@ function Footer() {
           <Typography style={{ textAlign: "justify" }} >
             BlablaCalèche is the first carriage pooling solution in the word. We
             put passengers and drivers in relation to share a trip, everywhere,
-            without any change.
+            for free.
           </Typography>
         </div>
         <div className="middleArea">
