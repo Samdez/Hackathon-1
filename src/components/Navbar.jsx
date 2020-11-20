@@ -44,17 +44,17 @@ export default function ButtonAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Box bgcolor="#FFFFFF">
           <Toolbar>
             <div>
-              <Button
+              {/* <Button
                 aria-controls="simple-menu"
                 aria-haspopup="true"
                 onClick={handleClick}
               >
                 <MenuIcon />
-              </Button>
+              </Button> */}
               <Menu
                 id="simple-menu"
                 anchorEl={anchorEl}

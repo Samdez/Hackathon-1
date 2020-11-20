@@ -16,6 +16,7 @@ import { DatePicker } from "@material-ui/pickers";
 import tripContext from "../contexts/tripContext";
 import { Grid } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import { createMuiTheme } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -24,6 +25,13 @@ const useStyles = makeStyles((theme) => ({
   title: {
     marginLeft: theme.spacing(2),
     flex: 1,
+    backgroungColor: "white",
+  },
+  background: {
+    backgroundColor: "#e7bd70",
+  },
+  background2: {
+    backgroundColor: "white",
   },
 }));
 
@@ -93,7 +101,8 @@ function Trip() {
         <Grid>
           <Button
             variant="outlined"
-            color="primary"
+            color="black"
+            className={classes.background2}
             onClick={handleClickOpenDeparture}
           >
             {departureCity}
@@ -148,7 +157,8 @@ function Trip() {
         <Grid>
           <Button
             variant="outlined"
-            color="primary"
+            color="black"
+            className={classes.background2}
             onClick={handleClickOpenArrival}
           >
             {arrivalCity}
@@ -207,17 +217,15 @@ function Trip() {
           animateYearScrolling
         />
       </Grid>
-
-      {/* Validation button */}
-      <Grid style={{ margin: 25 }} xs={9}>
+      <Grid style={{ marginBottom: 25 }} xs={9}>
         <Button
           disabled={!ableToValidate}
           component={Link}
           to={"/trip-search-results"}
           variant="contained"
-          color="primary"
+          className={classes.background}
         >
-          Validate
+          Let's go for a ride
         </Button>
       </Grid>
     </Grid>

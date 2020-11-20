@@ -1,7 +1,5 @@
-import PassengerComponent from "./Passenger";
-import DriverComponent from "./Driver";
 import Header from "./Header";
-import IntroComponent from "./IntroductionApp";
+
 import Footer from "./Footer";
 import { Container } from "@material-ui/core";
 
@@ -10,9 +8,9 @@ const Layout = ({ children }) => {
     <div>
       <Header />
       <Container>{children}</Container>
-      <PassengerComponent />
+      {/* <PassengerComponent />
       <DriverComponent />
-      <IntroComponent />
+      <IntroComponent /> */}
       <Footer />
     </div>
   );
