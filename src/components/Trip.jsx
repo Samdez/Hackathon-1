@@ -143,9 +143,10 @@ function Trip() {
           open={openDeparture}
           onClose={handleCloseDeparture}
           TransitionComponent={Transition}
+          
         >
-          <AppBar className={classes.appBar2}>
-            <Toolbar>
+          <AppBar className={classes.appBar2} style={{backgroundColor : '#e7bd70'}}>
+            <Toolbar >
               <IconButton
                 edge="start"
                 color="inherit"
@@ -200,7 +201,7 @@ function Trip() {
           onClose={handleCloseArrival}
           TransitionComponent={Transition}
         >
-          <AppBar className={classes.appBar2}>
+          <AppBar className={classes.appBar2} style={{backgroundColor : '#e7bd70'}}>
             <Toolbar>
               <IconButton
                 edge="start"
