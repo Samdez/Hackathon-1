@@ -69,7 +69,7 @@ export default function ButtonAppBar() {
                   </NavLink>
                 </MenuItem>
                 <MenuItem onClick={handleClose}>
-                  <NavLink tag={Link} to="/myprofile">
+                  <NavLink tag={Link} to="/trip">
                     Drive
                   </NavLink>
                 </MenuItem>

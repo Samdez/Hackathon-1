@@ -59,16 +59,14 @@ function TravelCard({ arrival, departure, duration, price, backgroundImage, port
           avatar={
             <Avatar aria-label="recipe" src={portrait} />
           }
-          title={departure + '/' + arrival}
           flexWrap='wrap'
-          subheader={duration + 'hours'}
+          subheader={`${departure} / ${arrival}`}
         />
         <div className={classes.spaceBetween}>
         <div className={classes.flex}>
           <LinearScaleIcon className={classes.path} style={{ fontSize: 40 }}  />
           <div>
-            <Typography>{departure}</Typography>
-            <Typography>{arrival}</Typography>
+            <Typography variant='h5'>Estimated duration : {duration + 'hours'}</Typography>
           </div>
         </div>
 

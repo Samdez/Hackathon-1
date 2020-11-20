@@ -4,6 +4,7 @@
   align-items: center;
   background-image: url("../components/images/passengerBg.jpg");
   background-size: cover;
+  background-attachment: fixed;
   background-position: center;
   -webkit-background-size: cover;
   width: 100%;
@@ -24,4 +25,13 @@
 
 .maintext {
   margin-bottom: 200px;
+}
+
+@media screen and (min-width: 758px) {
+  .mainLogo {
+    width: 20%;
+  }
+  .passengerBg {
+    padding-top: 40px;
+  }
 }
